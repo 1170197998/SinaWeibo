@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="2bZ-Ec-Yjb">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Popover View Controller-->
+        <scene sceneID="yxP-A6-FLT">
+            <objects>
+                <viewController id="2bZ-Ec-Yjb" customClass="PopoverViewController" customModule="SFWeiBo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="qU8-Zo-Zh0"/>
+                        <viewControllerLayoutGuide type="bottom" id="Eef-OS-J5H"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Q9E-se-j6f">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="popover_background" translatesAutoresizingMaskIntoConstraints="NO" id="skz-oH-M5P">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="T4s-nn-Yve">
+                                <rect key="frame" x="20" y="20" width="560" height="560"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Eef-OS-J5H" firstAttribute="top" secondItem="skz-oH-M5P" secondAttribute="bottom" id="0dl-i6-dSp"/>
+                            <constraint firstAttribute="trailing" secondItem="T4s-nn-Yve" secondAttribute="trailing" constant="20" id="F2I-7A-lTk"/>
+                            <constraint firstItem="T4s-nn-Yve" firstAttribute="leading" secondItem="Q9E-se-j6f" secondAttribute="leading" constant="20" id="QyW-h3-rKe"/>
+                            <constraint firstItem="T4s-nn-Yve" firstAttribute="top" secondItem="Q9E-se-j6f" secondAttribute="topMargin" constant="20" id="Rnm-gk-tau"/>
+                            <constraint firstAttribute="trailing" secondItem="skz-oH-M5P" secondAttribute="trailing" id="dBq-Jb-qVK"/>
+                            <constraint firstItem="skz-oH-M5P" firstAttribute="top" secondItem="Q9E-se-j6f" secondAttribute="top" id="gIP-BH-Wv6"/>
+                            <constraint firstItem="T4s-nn-Yve" firstAttribute="top" secondItem="qU8-Zo-Zh0" secondAttribute="bottom" constant="20" id="sD5-xz-dDy"/>
+                            <constraint firstItem="Eef-OS-J5H" firstAttribute="top" secondItem="T4s-nn-Yve" secondAttribute="bottom" constant="20" id="upC-ZD-C81"/>
+                            <constraint firstItem="skz-oH-M5P" firstAttribute="leading" secondItem="Q9E-se-j6f" secondAttribute="leading" id="xkx-35-GTS"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="sD5-xz-dDy"/>
+                            </mask>
+                        </variation>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8kr-j7-zeP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="543" y="444"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="popover_background" width="217" height="49"/>
+    </resources>
+</document>
