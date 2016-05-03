@@ -142,7 +142,7 @@ class Status: NSObject {
             
             //判断当前微博是否有配图,如果没有就直接跳过
             //如果条件为nil,那么就会执行else件后面的语句
-            guard  let urls = status.pictureUrls  else {
+            guard  status.pictureUrls != nil  else {
                 continue
             }
             

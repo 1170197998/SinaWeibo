@@ -29,7 +29,7 @@ class OAuthViewController: UIViewController {
         
         //初始化导航条
         navigationItem.title = "少锋微博"
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "关闭", style: UIBarButtonItemStyle.Plain, target: self, action: "close")
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "关闭", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(OAuthViewController.close))
         
         //获取未授权的RequestToken
         let urlString = "https://api.weibo.com/oauth2/authorize?client_id=\(WB_App_Key)&redirect_uri=\(WB_redirect_url)"

@@ -31,13 +31,13 @@ class BaseTableViewController: UITableViewController,VisitorViewDelegate {
         //设置导航控制器的登录注册按钮
         //已经在AppDelegate中指定完毕
         //navigationController?.navigationBar.tintColor = UIColor.orangeColor()
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "注册", style: UIBarButtonItemStyle.Plain, target: self, action: "registerButtonWillClick")
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "登录", style: UIBarButtonItemStyle.Plain, target: self, action: "loginButotnWillClick")
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "注册", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(BaseTableViewController.registerButtonWillClick))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "登录", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(BaseTableViewController.loginButotnWillClick))
     }
     
     // MARK: - VisitorViewDelegate
     func loginButotnWillClick() {
-        print(__FUNCTION__)
+        print(#function)
         
         //弹出登录界面
         let oauthVC = OAuthViewController()

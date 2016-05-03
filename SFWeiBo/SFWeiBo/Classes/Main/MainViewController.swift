@@ -134,7 +134,7 @@ class MainViewController: UITabBarController {
         button.setBackgroundImage(UIImage(named: "tabbar_compose_button_highlighted"), forState: UIControlState.Highlighted)
         
         //添加监听事件
-        button.addTarget(self, action: "composeButtonClick", forControlEvents: UIControlEvents.TouchUpInside)
+        button.addTarget(self, action: #selector(MainViewController.composeButtonClick), forControlEvents: UIControlEvents.TouchUpInside)
         
         return button
     }()

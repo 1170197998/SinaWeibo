@@ -129,7 +129,7 @@ class NewfearureCell: UICollectionViewCell {
         let button = UIButton()
         button.setBackgroundImage(UIImage(named: "new_feature_button"), forState: UIControlState.Normal)
         button.setBackgroundImage(UIImage(named: "new_feature_button_highlighted"), forState: UIControlState.Highlighted)
-        button.addTarget(self, action: "starButtonClick", forControlEvents: UIControlEvents.TouchUpInside)
+        button.addTarget(self, action: #selector(NewfearureCell.starButtonClick), forControlEvents: UIControlEvents.TouchUpInside)
         return button
     }()
     

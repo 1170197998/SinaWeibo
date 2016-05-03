@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         //注册一个通知
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "switchRootViewController:", name: SFSwitchRootViewController, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AppDelegate.switchRootViewController(_:)), name: SFSwitchRootViewController, object: nil)
         
         //设置导航条和工具条的外观
         //在这里设置程序-进来就执行,全局有效

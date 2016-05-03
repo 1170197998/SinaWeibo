@@ -116,7 +116,6 @@ class VisitorView: UIView {
         let label = UILabel()
         label.numberOfLines = 0
         label.textColor = UIColor.darkGrayColor()
-        label.text = "hahahhahahahahahahahahahahaah"
         return label
     }()
     private lazy var loginButton:UIButton = {
@@ -124,7 +123,7 @@ class VisitorView: UIView {
         button.setTitleColor(UIColor.darkGrayColor(), forState: UIControlState.Normal)
         button.setTitle("登录", forState: UIControlState.Normal)
         button.setBackgroundImage(UIImage(named: "common_button_white_disable"), forState: UIControlState.Normal)
-        button.addTarget(self, action: "loginButtonClick", forControlEvents: UIControlEvents.TouchUpInside)
+        button.addTarget(self, action: #selector(VisitorView.loginButtonClick), forControlEvents: UIControlEvents.TouchUpInside)
         return button
     }()
     private lazy var registerButton:UIButton = {
@@ -132,7 +131,7 @@ class VisitorView: UIView {
         button.setTitleColor(UIColor.orangeColor (), forState: UIControlState.Normal)
         button.setTitle("注册", forState: UIControlState.Normal)
         button.setBackgroundImage(UIImage(named: "common_button_white_disable"), forState: UIControlState.Normal)
-        button.addTarget(self, action: "registerButtonClick", forControlEvents: UIControlEvents.TouchUpInside)
+        button.addTarget(self, action: #selector(VisitorView.registerButtonClick), forControlEvents: UIControlEvents.TouchUpInside)
         return button
     }()
     private lazy var maskBackGroundView:UIImageView = {

@@ -52,7 +52,7 @@ class PopoverPresentationController: UIPresentationController {
         view.frame = UIScreen.mainScreen().bounds
         
         //为蒙版view添加一个监听,点击蒙版的时候,转场消失
-        let tap = UITapGestureRecognizer(target: self, action: "close")
+        let tap = UITapGestureRecognizer(target: self, action: #selector(PopoverPresentationController.close))
         view.addGestureRecognizer(tap)
         return view
     }()

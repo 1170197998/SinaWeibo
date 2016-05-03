@@ -52,7 +52,7 @@ class PhotoBrowserViewController: UIViewController {
         button.setTitle("关闭", forState: UIControlState.Normal)
         button.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
         button.backgroundColor = UIColor.darkGrayColor()
-        button.addTarget(self, action: "close", forControlEvents: UIControlEvents.TouchUpInside)
+        button.addTarget(self, action: #selector(PhotoBrowserViewController.close), forControlEvents: UIControlEvents.TouchUpInside)
         return button
     }()
     
@@ -62,7 +62,7 @@ class PhotoBrowserViewController: UIViewController {
         button.setTitle("保存", forState: UIControlState.Normal)
         button.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
         button.backgroundColor = UIColor.darkGrayColor()
-        button.addTarget(self, action: "save", forControlEvents: UIControlEvents.TouchUpInside)
+        button.addTarget(self, action: #selector(PhotoBrowserViewController.save), forControlEvents: UIControlEvents.TouchUpInside)
         return button
     }()
     

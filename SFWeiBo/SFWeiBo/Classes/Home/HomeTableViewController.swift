@@ -41,9 +41,9 @@ class HomeTableViewController: BaseTableViewController  {
         setupNav()
         
         //3. 注册通知,监听菜单状态,设置小箭头朝向
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "change", name: PopoverAnimatorWillShow, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "change", name: PopoverAnimatorWillDismiss, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "showPhotoBrowser:", name: SFStatusPictureViewSelected, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(HomeTableViewController.change), name: PopoverAnimatorWillShow, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(HomeTableViewController.change), name: PopoverAnimatorWillDismiss, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(HomeTableViewController.showPhotoBrowser(_:)), name: SFStatusPictureViewSelected, object: nil)
         
         //注册2个cell(默认的cell 和 转发的cell)
         tableView.registerClass(StatusNormalTableViewCell.self, forCellReuseIdentifier: StatusTableViewCellIdentifier.NormalCell.rawValue)
@@ -52,7 +52,7 @@ class HomeTableViewController: BaseTableViewController  {
         
         //添加下拉刷新控件
         refreshControl = HomeRefreshControl()
-        refreshControl?.addTarget(self, action: "loadData", forControlEvents: UIControlEvents.ValueChanged)
+        refreshControl?.addTarget(self, action: #selector(HomeTableViewController.loadData), forControlEvents: UIControlEvents.ValueChanged)
 
         //4. 加载微博数据
         loadData()
@@ -154,13 +154,13 @@ class HomeTableViewController: BaseTableViewController  {
     
     private func setupNav() {
         
-        navigationItem.leftBarButtonItem = UIBarButtonItem.creatBarButtonItem("navigationbar_friendattention", target: self, action: "leftItemClcik")
-        navigationItem.rightBarButtonItem = UIBarButtonItem.creatBarButtonItem("navigationbar_pop", target: self, action: "rightItemClick")
+        navigationItem.leftBarButtonItem = UIBarButtonItem.creatBarButtonItem("navigationbar_friendattention", target: self, action: #selector(HomeTableViewController.leftItemClcik))
+        navigationItem.rightBarButtonItem = UIBarButtonItem.creatBarButtonItem("navigationbar_pop", target: self, action: #selector(HomeTableViewController.rightItemClick))
         
         //创建标题按钮
         let titleButton = TitleButton()
         titleButton.setTitle("少锋 ", forState: UIControlState.Normal)
-        titleButton.addTarget(self, action: "titleButtonClick:", forControlEvents: UIControlEvents.TouchUpInside)
+        titleButton.addTarget(self, action: #selector(HomeTableViewController.titleButtonClick(_:)), forControlEvents: UIControlEvents.TouchUpInside)
         navigationItem.titleView = titleButton
     }
     
