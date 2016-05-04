@@ -8,6 +8,9 @@
 
 import UIKit
 
+//cell重用标识
+private let  photoBrowserCellReuseIdentifier = "pictureCell"
+
 class PhotoBrowserViewController: UIViewController {
 
     var currentIndex: Int?
@@ -38,6 +41,10 @@ class PhotoBrowserViewController: UIViewController {
         closeButton.xmg_AlignInner(type: XMG_AlignType.BottomLeft, referView: view, size: CGSizeMake(100, 35),offset: CGPointMake(10, -10))
         saveButton.xmg_AlignInner(type: XMG_AlignType.BottomRight, referView: view, size: CGSizeMake(100, 35),offset: CGPointMake(-10, -10))
         collectionView.frame = UIScreen.mainScreen().bounds
+        
+        //设置数据源
+        collectionView.dataSource = self
+        collectionView.registerClass(PhotoBroeserCell.self, forCellWithReuseIdentifier: photoBrowserCellReuseIdentifier)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -66,7 +73,7 @@ class PhotoBrowserViewController: UIViewController {
         return button
     }()
     
-    private lazy var collectionView:UICollectionView = UICollectionView(frame: CGRectZero,collectionViewLayout: UICollectionViewFlowLayout())
+    private lazy var collectionView:UICollectionView = UICollectionView(frame: CGRectZero,collectionViewLayout: photoBrowserLayout())
     
     
     func close() {
@@ -75,5 +82,37 @@ class PhotoBrowserViewController: UIViewController {
     
     func save() {
         
+    }
+}
+
+// MARK: - 自定义cell
+extension PhotoBrowserViewController: UICollectionViewDataSource {
+    
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return pictureUrls?.count ?? 0
+    }
+    
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(photoBrowserCellReuseIdentifier, forIndexPath: indexPath) as! PhotoBroeserCell
+        cell.imageUrl = pictureUrls![indexPath.item]
+        
+        return cell
+    }
+}
+
+/// cell布局
+class photoBrowserLayout: UICollectionViewFlowLayout {
+    
+    override func prepareLayout() {
+        
+        itemSize = UIScreen.mainScreen().bounds.size
+        minimumLineSpacing = 0
+        minimumInteritemSpacing = 0
+        scrollDirection = UICollectionViewScrollDirection.Horizontal
+        
+        collectionView?.showsHorizontalScrollIndicator = false
+        collectionView?.pagingEnabled = true
+        collectionView?.bounces = false
     }
 }
