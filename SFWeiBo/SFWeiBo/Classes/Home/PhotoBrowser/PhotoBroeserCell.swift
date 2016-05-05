@@ -15,12 +15,34 @@ class PhotoBroeserCell: UICollectionViewCell {
     var imageUrl: NSURL? {
         didSet {
             pictureView.sd_setImageWithURL(imageUrl) { (image, _, _, _) in
-                let size = self.displaySize(image)
-                self.pictureView.frame = CGRect(origin: CGPointZero, size: size)
+               
+                self.setImageViewPostion()
             }
         }
     }
     
+    //调整图片位置
+    private func setImageViewPostion() {
+        
+        //计算图片宽高比
+        let size = self.displaySize(pictureView.image!)
+        
+        //判断图片的高度是否大于屏幕的高度
+        if size.height < UIScreen.mainScreen().bounds.height {
+            //短图
+            pictureView.frame = CGRect(origin: CGPointZero, size: size)
+            //处理居中显示(设置上面和下面不显示)
+            let y = (UIScreen.mainScreen().bounds.height - size.height) / 2
+            scrollView.contentInset = UIEdgeInsets(top: y, left: 0, bottom: y, right: 0)
+            
+        } else {
+            //长图
+            pictureView.frame = CGRect(origin: CGPointZero, size: size)
+            scrollView.contentSize = size
+        }
+    }
+    
+    //计算图片宽高比
     private func displaySize(image:UIImage) -> CGSize {
         
         //获取图片的宽高比例
@@ -41,12 +63,11 @@ class PhotoBroeserCell: UICollectionViewCell {
     private func setupUI() {
         
         //添加子控件
-        addSubview(scrollView)
-        addSubview(pictureView)
+        contentView.addSubview(scrollView)
+        scrollView.addSubview(pictureView)
         
         //布局子控件
         scrollView.frame = UIScreen.mainScreen().bounds
-        
     }
     
     //MARK: - 懒加载子控件
