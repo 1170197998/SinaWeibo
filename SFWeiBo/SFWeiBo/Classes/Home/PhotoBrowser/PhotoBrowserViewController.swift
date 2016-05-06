@@ -86,7 +86,7 @@ class PhotoBrowserViewController: UIViewController {
 }
 
 // MARK: - 自定义cell
-extension PhotoBrowserViewController: UICollectionViewDataSource {
+extension PhotoBrowserViewController: UICollectionViewDataSource,PhotoBrowserCellDelegate {
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return pictureUrls?.count ?? 0
@@ -96,8 +96,13 @@ extension PhotoBrowserViewController: UICollectionViewDataSource {
         
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(photoBrowserCellReuseIdentifier, forIndexPath: indexPath) as! PhotoBroeserCell
         cell.imageUrl = pictureUrls![indexPath.item]
-        
+        cell.photoBrowserCellDelegate =  self
+
         return cell
+    }
+    
+    func photoBrowserCellDidClose(cell: PhotoBroeserCell) {
+        dismissViewControllerAnimated(true, completion: nil)
     }
 }
 
