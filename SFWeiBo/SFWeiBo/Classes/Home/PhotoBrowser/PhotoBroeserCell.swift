@@ -115,7 +115,7 @@ class PhotoBroeserCell: UICollectionViewCell {
     
     //MARK: - 懒加载子控件
     private lazy var scrollView: UIScrollView = UIScrollView()
-    private lazy var pictureView: UIImageView = UIImageView()
+    lazy var pictureView: UIImageView = UIImageView()
     //菊花
     private lazy var activity: UIActivityIndicatorView =  UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.WhiteLarge)
 

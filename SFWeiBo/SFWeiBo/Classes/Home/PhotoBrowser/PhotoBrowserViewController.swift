@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 //cell重用标识
 private let  photoBrowserCellReuseIdentifier = "pictureCell"
@@ -82,6 +83,27 @@ class PhotoBrowserViewController: UIViewController {
     
     func save() {
         
+        //拿到当前显示的cell
+        let index = collectionView.indexPathsForVisibleItems().last
+        let cell = collectionView.cellForItemAtIndexPath(index!) as! PhotoBroeserCell
+        
+        //保存图片
+        let image = cell.pictureView.image
+        
+        UIImageWriteToSavedPhotosAlbum(image!, self, "image:didFinishSavingWithError:contextInfo:", nil)
+        
+        //  - (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo;
+    }
+    
+    func image(image:UIImage,didFinishSavingWithError error:NSError?,contextInfo:AnyObject) {
+        
+        if error != nil {
+            SVProgressHUD.showErrorWithStatus("保存失败")
+            SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.Black)
+        } else {
+            SVProgressHUD.showSuccessWithStatus("保存成功")
+            SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.Black)
+        }
     }
 }
 

@@ -94,6 +94,11 @@ class StatusPictureView: UICollectionView {
             {
             didSet{
                 iconImageView.sd_setImageWithURL(imageURL!)
+                //判断是否是gif(先取后缀,然后转小写)
+                if (imageURL!.absoluteString as NSString).pathExtension.lowercaseString == "gif" {
+                    gifImageView.hidden = false
+                }
+
             }
         }
         
@@ -107,13 +112,22 @@ class StatusPictureView: UICollectionView {
         {
             // 1.添加子控件
             contentView.addSubview(iconImageView)
+            iconImageView.addSubview(gifImageView)
+
             // 2.布局子控件
             iconImageView.xmg_Fill(contentView)
+            gifImageView.xmg_AlignInner(type: XMG_AlignType.BottomRight, referView: iconImageView, size: nil)
         }
         
         // MARK: - 懒加载
         private lazy var iconImageView:UIImageView = UIImageView()
-        
+        private lazy var gifImageView:UIImageView = {
+            
+            let imageView = UIImageView(image: UIImage(named: "avatar_vgirl"))
+            imageView.hidden = true
+            return imageView
+        }()
+
         required init?(coder aDecoder: NSCoder) {
             fatalError("init(coder:) has not been implemented")
         }
