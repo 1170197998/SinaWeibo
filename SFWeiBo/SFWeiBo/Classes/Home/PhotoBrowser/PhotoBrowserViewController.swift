@@ -90,9 +90,7 @@ class PhotoBrowserViewController: UIViewController {
         //保存图片
         let image = cell.pictureView.image
         
-        UIImageWriteToSavedPhotosAlbum(image!, self, "image:didFinishSavingWithError:contextInfo:", nil)
-        
-        //  - (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo;
+        UIImageWriteToSavedPhotosAlbum(image!, self, #selector(PhotoBrowserViewController.image(_:didFinishSavingWithError:contextInfo:)), nil)
     }
     
     func image(image:UIImage,didFinishSavingWithError error:NSError?,contextInfo:AnyObject) {
