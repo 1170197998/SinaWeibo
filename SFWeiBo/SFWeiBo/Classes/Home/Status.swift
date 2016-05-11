@@ -77,17 +77,16 @@ class Status: NSObject {
     var user: User?
     ///转发微博
     var retweeted_status: Status?
-    /// 定义一个计算属性，用于返回原创或者转发微博缩略图的的URL数组，优先查找转发的配图，用于缓存
+    /// 原创或者转发微博缩略图的的URL数组，优先查找转发的配图，用于缓存
     var pictureUrls:[NSURL]? {
         return retweeted_status != nil ? retweeted_status?.pictureUrls : storedPicUrls
     }
-    /// 定义一个计算属性，用于返回原创或者转发微博大图的的URL数组，优先查找转发的配图，用于缓存
+    /// 原创或者转发微博大图的的URL数组，优先查找转发的配图，用于缓存
     var largePictureUrls:[NSURL]? {
         return retweeted_status != nil ? retweeted_status?.largePictureUrls : storedLargePicUrls
     }
     
     // MARK: - 加载微博数据
-    //(finished: (models:[Status],error: NSError -> ()) -> ()) :闭包，请求成功后给调用者返回模型或错误
     class func loadStatus(since_id:Int, max_id:Int, finished: (models:[Status]?,error: NSError?) -> ()) {
         
         let path = "2/statuses/home_timeline.json"

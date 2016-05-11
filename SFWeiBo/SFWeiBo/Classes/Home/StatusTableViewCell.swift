@@ -27,7 +27,6 @@ enum StatusTableViewCellIdentifier: String {
     }
 }
 
-
 class StatusTableViewCell: UITableViewCell {
     
     //保存配图的宽高约束
@@ -43,10 +42,8 @@ class StatusTableViewCell: UITableViewCell {
             
             //设置顶部视图数据
             topView.status = status
-            
             //设置正文
             contentLabel.text = status?.text
-            
             //设置配图尺寸
             pictureView.status = status?.retweeted_status != nil ? status?.retweeted_status : status
             //根据模型计算配图尺寸,先传递模型，后计算

@@ -9,7 +9,7 @@
 import UIKit
 import SDWebImage
 
-//点击关闭图片
+//点击关闭图片协议
 protocol PhotoBrowserCellDelegate: NSObjectProtocol {
     func photoBrowserCellDidClose(cell: PhotoBroeserCell)
 }
@@ -75,7 +75,7 @@ class PhotoBroeserCell: UICollectionViewCell {
         let scale = image.size.height / image.size.width
         
         //根据宽高比例计算高度
-        let width = UIScreen.mainScreen().bounds.size.width
+        let width = UIScreen.mainScreen().bounds.width
         let height = width * scale
         
         return CGSize(width: width, height: height)
