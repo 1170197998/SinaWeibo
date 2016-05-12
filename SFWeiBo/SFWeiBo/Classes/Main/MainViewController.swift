@@ -32,7 +32,9 @@ class MainViewController: UITabBarController {
     // MARK: - 中间按钮的监听事件
     // 监听按钮点击的方法不能是私有方法(不能加private),因为是有运行循环触发的
     func composeButtonClick() {
-        
+        let vc = ComposeViewController()
+        let nav = UINavigationController(rootViewController: vc)
+        presentViewController(nav, animated: true, completion: nil)
     }
     
     // MARK: - 添加 加号 按钮

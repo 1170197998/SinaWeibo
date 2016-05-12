@@ -98,7 +98,6 @@ class StatusPictureView: UICollectionView {
                 if (imageURL!.absoluteString as NSString).pathExtension.lowercaseString == "gif" {
                     gifImageView.hidden = false
                 }
-
             }
         }
         

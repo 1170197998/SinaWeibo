@@ -52,6 +52,7 @@
 		04FDF3201CD127EE00F189A0 /* StatusNormalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FDF31F1CD127EE00F189A0 /* StatusNormalTableViewCell.swift */; };
 		9A0176901CD97FDD0002DC1A /* UIColor+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A01768F1CD97FDD0002DC1A /* UIColor+Category.swift */; };
 		9A0176921CD981E50002DC1A /* PhotoBroeserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0176911CD981E50002DC1A /* PhotoBroeserCell.swift */; };
+		9A66F07B1CE4540700C83772 /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A66F07A1CE4540700C83772 /* ComposeViewController.swift */; };
 		EC7B308ED64B28CA7970A14D /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 243576FA5AC90BC66B7DEEC0 /* Pods.framework */; };
 /* End PBXBuildFile section */
 
@@ -128,6 +129,7 @@
 		7C7361C7431EA872BD5EC504 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		9A01768F1CD97FDD0002DC1A /* UIColor+Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Category.swift"; sourceTree = "<group>"; };
 		9A0176911CD981E50002DC1A /* PhotoBroeserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoBroeserCell.swift; sourceTree = "<group>"; };
+		9A66F07A1CE4540700C83772 /* ComposeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -303,6 +305,7 @@
 		04D44C651CA058C800E6C906 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				9A66F0791CE4540700C83772 /* Compose */,
 				04D185561CD791130053EADA /* PhotoBrowser */,
 				0439CF011CAC173400256571 /* QRCode */,
 				0479FF891CA822120031B845 /* Popover */,
@@ -375,6 +378,14 @@
 				243576FA5AC90BC66B7DEEC0 /* Pods.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9A66F0791CE4540700C83772 /* Compose */ = {
+			isa = PBXGroup;
+			children = (
+				9A66F07A1CE4540700C83772 /* ComposeViewController.swift */,
+			);
+			path = Compose;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -580,6 +591,7 @@
 				04C718DA1CCFB66C00D9E342 /* StatusPictureView.swift in Sources */,
 				043E5A651CB01E4A00EDC901 /* QRCodeCardViewController.swift in Sources */,
 				04D44C6B1CA0595600E6C906 /* MainViewController.swift in Sources */,
+				9A66F07B1CE4540700C83772 /* ComposeViewController.swift in Sources */,
 				04C718DC1CCFC1EE00D9E342 /* StatusForwardTableViewCell.swift in Sources */,
 				04D0F5E51CD3B71E00FEDF25 /* HomeRefreshControl.swift in Sources */,
 				0418E2D41CC9171B0048624B /* UILabel+Category.swift in Sources */,
