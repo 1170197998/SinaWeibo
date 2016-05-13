@@ -18,9 +18,25 @@ class ComposeViewController: UIViewController {
         setupInputView()
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        //设置键盘为第一响应
+        textView.becomeFirstResponder()
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        //取消键盘第一响应
+        textView.resignFirstResponder()
+    }
+    
     ///初始化输入框
     private func setupInputView() {
+        view.addSubview(textView)
+        textView.addSubview(placeholderLabel)
         
+        textView.xmg_Fill(view)
+        placeholderLabel.xmg_AlignInner(type: XMG_AlignType.TopLeft, referView: textView, size: nil, offset: CGPoint(x: 5, y: 8))
     }
     
     ///初始化导航条
@@ -57,4 +73,31 @@ class ComposeViewController: UIViewController {
     func sendStatus() {
         
     }
+    
+    //MARK: - 懒加载
+    private lazy var textView: UITextView = {
+        let tv = UITextView()
+        tv.delegate = self
+        return tv
+    }()
+    
+    private lazy var placeholderLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFontOfSize(13)
+        label.textColor = UIColor.darkGrayColor()
+        label.text = "分享新鲜事..."
+        return label
+    }()
 }
+
+extension ComposeViewController: UITextViewDelegate {
+    
+    //监听输入内容
+    func textViewDidChange(textView: UITextView) {
+        
+        //textView.hasText()：是否有内容
+        placeholderLabel.hidden = textView.hasText()
+        navigationItem.rightBarButtonItem?.enabled = textView.hasText()
+    }
+}
+
