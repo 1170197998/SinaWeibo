@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class ComposeViewController: UIViewController {
 
@@ -72,6 +73,23 @@ class ComposeViewController: UIViewController {
     
     func sendStatus() {
         
+        let path = "2/statuses/update.json"
+        let params = ["access_token":UserAccount.loadAccount()?.access_token! , "status": textView.text]
+        
+        NetworkTools.shareNetworkTools().POST(path, parameters: params, progress: nil, success: { (_, JSON) in
+            
+            //提示用户发送成功
+            SVProgressHUD.showSuccessWithStatus("发送成功")
+            SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.Black)
+            //关闭发送界面
+            self.close()
+            
+        }) { (_, error) in
+            print(error)
+            //提示用户发送失败
+            SVProgressHUD.showErrorWithStatus("发送失败")
+            SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.Black)
+        }
     }
     
     //MARK: - 懒加载
