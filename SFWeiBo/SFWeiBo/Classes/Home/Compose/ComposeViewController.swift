@@ -10,7 +10,7 @@ import UIKit
 import SVProgressHUD
 
 class ComposeViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.whiteColor()
@@ -24,7 +24,6 @@ class ComposeViewController: UIViewController {
         //设置键盘为第一响应
         textView.becomeFirstResponder()
     }
-    
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         //取消键盘第一响应
@@ -65,8 +64,7 @@ class ComposeViewController: UIViewController {
         label2.xmg_AlignInner(type: XMG_AlignType.BottomCenter, referView: titleView, size: nil)
         navigationItem.titleView = titleView
     }
-
-
+    
     func close() {
         dismissViewControllerAnimated(true, completion: nil)
     }

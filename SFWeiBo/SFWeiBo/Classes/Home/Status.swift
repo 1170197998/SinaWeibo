@@ -177,7 +177,6 @@ class Status: NSObject {
         return models
     }
     
-    
     // 字典转模型
     init(dict: [String: AnyObject])
     {

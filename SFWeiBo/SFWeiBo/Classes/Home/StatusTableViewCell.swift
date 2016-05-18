@@ -35,7 +35,6 @@ class StatusTableViewCell: UITableViewCell {
     
     var pictureTopCons: NSLayoutConstraint?
 
-    
     var status: Status?
         {
         didSet{

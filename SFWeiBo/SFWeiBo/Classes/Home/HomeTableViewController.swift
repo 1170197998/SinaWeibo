@@ -133,13 +133,13 @@ class HomeTableViewController: BaseTableViewController  {
         UIView.animateWithDuration(2, animations: { () -> Void in
             self.newStatusLabel.transform = CGAffineTransformMakeTranslation(0, self.newStatusLabel.frame.height)
             
-            }) { (_) -> Void in
-                UIView.animateWithDuration(2, animations: { () -> Void in
-                    
-                    self.newStatusLabel.transform = CGAffineTransformIdentity
-                    }, completion: { (_) -> Void in
-                        self.newStatusLabel.hidden = true
-                })
+        }) { (_) -> Void in
+            UIView.animateWithDuration(2, animations: { () -> Void in
+                
+                self.newStatusLabel.transform = CGAffineTransformIdentity
+                }, completion: { (_) -> Void in
+                    self.newStatusLabel.hidden = true
+            })
         }
     }
     

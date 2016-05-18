@@ -13,10 +13,9 @@ import SVProgressHUD
 private let  photoBrowserCellReuseIdentifier = "pictureCell"
 
 class PhotoBrowserViewController: UIViewController {
-
+    
     var currentIndex: Int?
     var pictureUrls: [NSURL]?
-    
     
     init(index: Int,urls:[NSURL]) {
         
@@ -24,7 +23,7 @@ class PhotoBrowserViewController: UIViewController {
         pictureUrls = urls
         super.init(nibName: nil, bundle: nil)
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.whiteColor()
@@ -52,10 +51,9 @@ class PhotoBrowserViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
     //MARK: - 懒加载
     private lazy var closeButton:UIButton = {
-       
+        
         let button = UIButton()
         button.setTitle("关闭", forState: UIControlState.Normal)
         button.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
@@ -117,7 +115,7 @@ extension PhotoBrowserViewController: UICollectionViewDataSource,PhotoBrowserCel
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(photoBrowserCellReuseIdentifier, forIndexPath: indexPath) as! PhotoBroeserCell
         cell.imageUrl = pictureUrls![indexPath.item]
         cell.photoBrowserCellDelegate =  self
-
+        
         return cell
     }
     
