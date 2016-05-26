@@ -43,7 +43,6 @@ class UserAccount: NSObject,NSCoding {
     
     override func setValue(value: AnyObject?, forUndefinedKey key: String) {
         //忽略没有的key
-        print(key)
     }
     
     //重写description

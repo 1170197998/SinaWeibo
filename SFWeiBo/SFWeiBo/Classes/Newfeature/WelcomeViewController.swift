@@ -27,12 +27,10 @@ class WelcomeViewController: UIViewController {
         let cons = iconView.xmg_AlignInner(type: XMG_AlignType.BottomCenter, referView: view, size: CGSize(width: 100, height: 100), offset: CGPoint(x: 0, y: -150))
         // 拿到头像的底部约束
         bottomCons = iconView.xmg_Constraint(cons, attribute: NSLayoutAttribute.Bottom)
-        
         messageLabel.xmg_AlignVertical(type: XMG_AlignType.BottomCenter, referView: iconView, size: nil, offset: CGPoint(x: 0, y: 20))
         
         // 3.设置用户头像
-        if let iconUrl = UserAccount.loadAccount()?.avatar_large
-        {
+        if let iconUrl = UserAccount.loadAccount()?.avatar_large {
             let url = NSURL(string: iconUrl)!
             iconView.sd_setImageWithURL(url)
         }
