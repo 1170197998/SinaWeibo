@@ -62,10 +62,8 @@ class VisitorView: UIView {
         //布局子空间
         //设置背景
         iconView.xmg_AlignInner(type:XMG_AlignType.Center, referView: self, size: nil)
-        
         //设置小房子
         homeIcon.xmg_AlignInner(type: XMG_AlignType.Center, referView: self, size: nil)
-        
         //设置文本
         messageLabel.xmg_AlignVertical(type: XMG_AlignType.BottomCenter, referView: iconView, size: nil)
         

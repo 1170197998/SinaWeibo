@@ -32,7 +32,6 @@ class Status: NSObject {
         didSet {
             
             if let string = source {
-                
                 //请求结果为空的时候直接跳过,防止崩溃
                 if  string == "" {
                     return
@@ -111,7 +110,6 @@ class Status: NSObject {
                 // 1.取出statuses key对应的数组 (存储的都是字典)
                 // 2.遍历数组, 将字典转换为模型
                 let models = dict2Model(JSON!["statuses"] as! [[String: AnyObject]])
-                //print(models)
                 
                 //缓存微博配图(缓存完图片后进行回调)
                 cacheStatusImages(models, finished: finished)
@@ -133,7 +131,6 @@ class Status: NSObject {
             finished(models: list, error: nil)
             return
         }
-        
         //创建一个组
         let group = dispatch_group_create()
 
@@ -169,8 +166,7 @@ class Status: NSObject {
     //[[String: AnyObject]]:是一个数组，数组的每个元素是字典
     class func dict2Model(list: [[String: AnyObject]]) -> [Status] {
         var models = [Status]()
-        for dict in list
-        {
+        for dict in list {
             //每转换一个模型添加到数组中
             models.append(Status(dict: dict))
         }
@@ -178,8 +174,7 @@ class Status: NSObject {
     }
     
     // 字典转模型
-    init(dict: [String: AnyObject])
-    {
+    init(dict: [String: AnyObject]) {
         super.init()
         setValuesForKeysWithDictionary(dict)
     }
@@ -199,7 +194,6 @@ class Status: NSObject {
             retweeted_status = Status(dict: value as! [String : AnyObject])
             return
         }
-        
         super.setValue(value, forKey: key)
     }
     

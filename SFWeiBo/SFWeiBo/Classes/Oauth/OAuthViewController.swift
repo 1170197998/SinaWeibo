@@ -106,7 +106,6 @@ extension OAuthViewController: UIWebViewDelegate {
             //获取用户信息
             account.loadUserInfo({ (account, error) -> () in
                 if account != nil {
-                    
                     account!.saveAccount()
                     NSNotificationCenter.defaultCenter().postNotificationName(SFSwitchRootViewController, object: false)
                     return

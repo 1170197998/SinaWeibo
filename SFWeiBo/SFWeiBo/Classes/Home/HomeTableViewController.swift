@@ -61,7 +61,6 @@ class HomeTableViewController: BaseTableViewController  {
     ///显示图片浏览器
     func showPhotoBrowser(notify: NSNotification) {
         
-        //
         guard let indexPath = notify.userInfo![SFStatusPictureViewIndexKey] else {
             //收到的值为空
             return
@@ -70,7 +69,6 @@ class HomeTableViewController: BaseTableViewController  {
             //收到的值为空
             return
         }
-        
         //创建图片浏览器
         let vc = PhotoBrowserViewController(index: indexPath.item, urls: urls as! [NSURL])
         presentViewController(vc, animated: true, completion: nil)
@@ -219,7 +217,6 @@ class HomeTableViewController: BaseTableViewController  {
         
         // 加载 navBar 上面，不会随着 tableView 一起滚动
         self.navigationController?.navigationBar.insertSubview(label, atIndex: 0)
-        
         label.hidden = true
         return label
     }()

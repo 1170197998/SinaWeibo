@@ -37,7 +37,6 @@ class BaseTableViewController: UITableViewController,VisitorViewDelegate {
     
     // MARK: - VisitorViewDelegate
     func loginButotnWillClick() {
-        print(#function)
         
         //弹出登录界面
         let oauthVC = OAuthViewController()

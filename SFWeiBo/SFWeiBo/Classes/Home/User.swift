@@ -24,7 +24,6 @@ class User: NSObject {
     }
     ///用于保存用户头像的URL
     var imageUrl: NSURL?
-    
     /// 时候是认证, true是, false不是
     var verified: Bool = false
     /// 用户的认证类型，-1：没有认证，0，认证用户，2,3,5: 企业认证，220: 达人

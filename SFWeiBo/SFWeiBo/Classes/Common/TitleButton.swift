@@ -26,10 +26,6 @@ class TitleButton: UIButton {
     override func layoutSubviews() {
         
         super.layoutSubviews()
-        //*0.5的原因是layoutSubviews会被调用两次
-        //titleLabel?.frame.offsetInPlace(dx: -imageView!.bounds.width * 0.5, dy: 0)
-        //imageView?.frame.offsetInPlace(dx: titleLabel!.bounds.width * 0.5, dy: 0)
-        
         //Swift中可以这样写.OC中不可以
         titleLabel?.frame.origin.x = 0
         imageView?.frame.origin.x = titleLabel!.frame.size.width

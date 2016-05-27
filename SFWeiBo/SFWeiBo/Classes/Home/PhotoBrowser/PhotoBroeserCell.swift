@@ -43,7 +43,6 @@ class PhotoBroeserCell: UICollectionViewCell {
         scrollView.contentInset = UIEdgeInsetsZero
         scrollView.contentOffset = CGPointZero
         scrollView.contentSize = CGSizeZero
-        
         pictureView.transform = CGAffineTransformIdentity
     }
     

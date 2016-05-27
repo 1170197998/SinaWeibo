@@ -18,14 +18,12 @@ class StatusTableViewBottomView: UIView {
     }
     
     //创建工具条的三个按钮
-    private func setupUI()
-    {
+    private func setupUI() {
         backgroundColor = UIColor(white: 0.2, alpha: 0.5)
         // 1.添加子控件
         addSubview(retweetBtn)
         addSubview(unlikeBtn)
         addSubview(commonBtn)
-
         // 2.布局子控件（平铺，距离周围的间隙）
         xmg_HorizontalTile([retweetBtn, unlikeBtn, commonBtn], insets: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0))
     }

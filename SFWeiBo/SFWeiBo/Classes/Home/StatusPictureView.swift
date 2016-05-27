@@ -46,8 +46,7 @@ class StatusPictureView: UICollectionView {
             return CGSizeZero
         }
         //一张配图时,返回实际大小
-        if count == 1
-        {
+        if count == 1 {
             // 3.1取出缓存的图片
             let key = status?.storedPicUrls!.first?.absoluteString
             //有可能缓存中图片为空
@@ -62,8 +61,7 @@ class StatusPictureView: UICollectionView {
         let width = 90
         let margin = 10
         pictureLayout.itemSize = CGSize(width: width, height: width)
-        if count == 4
-        {
+        if count == 4 {
             let viewWidth = width * 2 + margin
             return CGSize(width: viewWidth, height: viewWidth)
         }
@@ -107,8 +105,7 @@ class StatusPictureView: UICollectionView {
             setupUI()
         }
         
-        private func setupUI()
-        {
+        private func setupUI() {
             // 1.添加子控件
             contentView.addSubview(iconImageView)
             iconImageView.addSubview(gifImageView)
