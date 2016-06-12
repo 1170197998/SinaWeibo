@@ -9,13 +9,13 @@
 import UIKit
 import SVProgressHUD
 class UserAccount: NSObject,NSCoding {
-
+    
     /*
-    access_token	string	用户授权的唯一票据，用于调用微博的开放接口，
-    expires_in	string	access_token的生命周期，单位是秒数。
-    remind_in	string	access_token的生命周期（该参数即将废弃，开发者请使用expires_in）。
-    uid	string	授权用户的UID，   
-    */
+     access_token	string	用户授权的唯一票据，用于调用微博的开放接口，
+     expires_in	string	access_token的生命周期，单位是秒数。
+     remind_in	string	access_token的生命周期（该参数即将废弃，开发者请使用expires_in）。
+     uid	string	授权用户的UID，
+     */
     var access_token: String?
     var expires_in: NSNumber? {
         didSet {
@@ -81,9 +81,9 @@ class UserAccount: NSObject,NSCoding {
                 }
                 finish(account: nil, error: nil)
                 
-            }) { (_, error) -> Void in
-                print(error)
-                finish(account: nil, error: error)
+        }) { (_, error) -> Void in
+            print(error)
+            finish(account: nil, error: error)
         }
     }
     

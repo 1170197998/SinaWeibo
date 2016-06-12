@@ -49,17 +49,16 @@ class WelcomeViewController: UIViewController {
         UIView.animateWithDuration(2, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 1, options: UIViewAnimationOptions(rawValue: 0), animations: { () -> Void in
             // 头像动画
             self.iconView.layoutIfNeeded()
-            }) { (_) -> Void in
-                
-                // 文本动画
-                UIView.animateWithDuration( 2.0, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 1, options: UIViewAnimationOptions(rawValue: 0), animations: { () -> Void in
-                    self.messageLabel.alpha = 1.0
-                    }, completion: { (_) -> Void in
-                        print("OK")
-                        NSNotificationCenter.defaultCenter().postNotificationName(SFSwitchRootViewController, object: true)
-                })
+        }) { (_) -> Void in
+            
+            // 文本动画
+            UIView.animateWithDuration( 2.0, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 1, options: UIViewAnimationOptions(rawValue: 0), animations: { () -> Void in
+                self.messageLabel.alpha = 1.0
+                }, completion: { (_) -> Void in
+                    print("OK")
+                    NSNotificationCenter.defaultCenter().postNotificationName(SFSwitchRootViewController, object: true)
+            })
         }
-        
     }
     
     // MARK: -懒加载

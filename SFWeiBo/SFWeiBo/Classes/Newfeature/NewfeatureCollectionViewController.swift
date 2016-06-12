@@ -12,7 +12,7 @@ import UIKit
 //重用标识
 private let reuseIdentifier = "reuseIdentifier"
 class NewfeatureCollectionViewController: UICollectionViewController {
-
+    
     //页面个数
     private let pageCount = 4
     //布局对象(自定义布局)
@@ -43,7 +43,7 @@ class NewfeatureCollectionViewController: UICollectionViewController {
         //获取cell
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! NewfearureCell
         //设置cell数据
-//        cell.backgroundColor = UIColor.redColor()
+        //        cell.backgroundColor = UIColor.redColor()
         cell.imageIndex = indexPath.item
         
         return cell

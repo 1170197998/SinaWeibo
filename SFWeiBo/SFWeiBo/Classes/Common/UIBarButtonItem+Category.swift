@@ -14,7 +14,7 @@ extension UIBarButtonItem {
     
     //在func前面加上class,就相当于OC中的+,类方法
     class func creatBarButtonItem(imageName:String, target:AnyObject?, action:Selector) -> UIBarButtonItem {
-       
+        
         let button = UIButton()
         button.setImage(UIImage(named: imageName), forState: UIControlState.Normal)
         button.setImage(UIImage(named: imageName + "_highlighted"), forState: UIControlState.Highlighted)

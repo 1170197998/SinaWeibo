@@ -99,7 +99,7 @@ extension OAuthViewController: UIWebViewDelegate {
         //发送POST请求
         
         NetworkTools.shareNetworkTools().POST(path, parameters: params, progress: nil, success: { (_, JSON) -> Void in
-
+            
             //字典转模型
             let account = UserAccount(dict: JSON as! [String: AnyObject])
             
@@ -117,8 +117,8 @@ extension OAuthViewController: UIWebViewDelegate {
             //归档模型
             account.saveAccount()
             
-            }) { (_, error) -> Void in
-                print(error)
+        }) { (_, error) -> Void in
+            print(error)
         }
     }
 }
