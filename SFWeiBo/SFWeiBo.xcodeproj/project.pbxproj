@@ -52,6 +52,7 @@
 		04FDF3201CD127EE00F189A0 /* StatusNormalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FDF31F1CD127EE00F189A0 /* StatusNormalTableViewCell.swift */; };
 		9A0176901CD97FDD0002DC1A /* UIColor+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A01768F1CD97FDD0002DC1A /* UIColor+Category.swift */; };
 		9A0176921CD981E50002DC1A /* PhotoBroeserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0176911CD981E50002DC1A /* PhotoBroeserCell.swift */; };
+		9A186CBC1D0EC309007976EB /* AddFriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A186CBB1D0EC309007976EB /* AddFriendTableViewCell.swift */; };
 		9A1B545A1D0E4AA00084284D /* AddFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1B54591D0E4AA00084284D /* AddFriendViewController.swift */; };
 		9A1B545C1D0E4B100084284D /* SetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1B545B1D0E4B100084284D /* SetupViewController.swift */; };
 		9A66F07B1CE4540700C83772 /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A66F07A1CE4540700C83772 /* ComposeViewController.swift */; };
@@ -131,6 +132,7 @@
 		7C7361C7431EA872BD5EC504 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		9A01768F1CD97FDD0002DC1A /* UIColor+Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Category.swift"; sourceTree = "<group>"; };
 		9A0176911CD981E50002DC1A /* PhotoBroeserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoBroeserCell.swift; sourceTree = "<group>"; };
+		9A186CBB1D0EC309007976EB /* AddFriendTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddFriendTableViewCell.swift; sourceTree = "<group>"; };
 		9A1B54591D0E4AA00084284D /* AddFriendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddFriendViewController.swift; sourceTree = "<group>"; };
 		9A1B545B1D0E4B100084284D /* SetupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetupViewController.swift; sourceTree = "<group>"; };
 		9A66F07A1CE4540700C83772 /* ComposeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
@@ -353,6 +355,7 @@
 				04D44C721CA059AD00E6C906 /* ProfileTableViewController.swift */,
 				9A1B54591D0E4AA00084284D /* AddFriendViewController.swift */,
 				9A1B545B1D0E4B100084284D /* SetupViewController.swift */,
+				9A186CBB1D0EC309007976EB /* AddFriendTableViewCell.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -590,6 +593,7 @@
 				040014621CBBE29F0073B18E /* WelcomeViewController.swift in Sources */,
 				04D44C6D1CA0598000E6C906 /* HomeTableViewController.swift in Sources */,
 				04F476FF1CCBB38400EC8F6F /* NSDate+Category.swift in Sources */,
+				9A186CBC1D0EC309007976EB /* AddFriendTableViewCell.swift in Sources */,
 				044857591CB5522D002904ED /* NetworkTools.swift in Sources */,
 				04D185581CD7913B0053EADA /* PhotoBrowserViewController.swift in Sources */,
 				04EA68711CC7C37C00F587A8 /* StatusTableViewCell.swift in Sources */,

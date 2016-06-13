@@ -17,9 +17,9 @@ class SetupViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        view.backgroundColor = UIColor.lightGrayColor()
+        self.title = "设置"
         tableView.tableFooterView = UIView()
+        tableView.backgroundColor = UIColor(red: 229 / 255, green: 228/255, blue: 229/255, alpha: 1)
         tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)
     }
     
@@ -29,7 +29,7 @@ class SetupViewController: UITableViewController {
         } else if section == 1 || section == 2 {
             return 3
         } else {
-            return 4
+            return 1
         }
     }
     
@@ -51,6 +51,11 @@ class SetupViewController: UITableViewController {
         if indexPath.section == 2 {
             cell.textLabel?.text = arrayTitle3[indexPath.row]
         }
+        if indexPath.section == 3 {
+            cell.accessoryType = UITableViewCellAccessoryType.None
+            cell.contentView.addSubview(label)
+            label.xmg_Fill(cell.contentView, insets: UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: 0))
+        }
     
         return cell
     }
@@ -58,4 +63,12 @@ class SetupViewController: UITableViewController {
     override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 20
     }
+    
+    private lazy var label: UILabel = {
+        let label = UILabel()
+        label.textColor = UIColor.orangeColor()
+        label.textAlignment = NSTextAlignment.Center
+        label.text = "退出当前账号"
+        return label
+    }()
 }

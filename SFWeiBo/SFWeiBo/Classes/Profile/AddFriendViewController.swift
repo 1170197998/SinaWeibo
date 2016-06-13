@@ -7,29 +7,36 @@
 //
 
 import UIKit
+let addFriendCellIdentifier = "addFriendCellIdentifier"
 
-class AddFriendViewController: UIViewController {
+class AddFriendViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
+        setupNavigationBar()
+        tableView.tableFooterView = UIView()
+        tableView.registerClass(AddFriendTableViewCell.self, forCellReuseIdentifier: addFriendCellIdentifier)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    private func setupNavigationBar() {
+        self.title = "添加好友"
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(image: UIImage.init(named: "ic_gengduo"), style: UIBarButtonItemStyle.Done, target: self, action: #selector(AddFriendViewController.rightBarButtonClick))
     }
-    */
+    
+    func rightBarButtonClick() {
+        
+    }
+    
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 3
+    }
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier(addFriendCellIdentifier, forIndexPath: indexPath) as! AddFriendTableViewCell
+        return cell
+    }
 
+    
 }
