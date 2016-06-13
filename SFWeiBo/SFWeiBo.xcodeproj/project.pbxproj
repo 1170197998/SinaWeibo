@@ -52,6 +52,8 @@
 		04FDF3201CD127EE00F189A0 /* StatusNormalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FDF31F1CD127EE00F189A0 /* StatusNormalTableViewCell.swift */; };
 		9A0176901CD97FDD0002DC1A /* UIColor+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A01768F1CD97FDD0002DC1A /* UIColor+Category.swift */; };
 		9A0176921CD981E50002DC1A /* PhotoBroeserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0176911CD981E50002DC1A /* PhotoBroeserCell.swift */; };
+		9A1B545A1D0E4AA00084284D /* AddFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1B54591D0E4AA00084284D /* AddFriendViewController.swift */; };
+		9A1B545C1D0E4B100084284D /* SetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1B545B1D0E4B100084284D /* SetupViewController.swift */; };
 		9A66F07B1CE4540700C83772 /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A66F07A1CE4540700C83772 /* ComposeViewController.swift */; };
 		EC7B308ED64B28CA7970A14D /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 243576FA5AC90BC66B7DEEC0 /* Pods.framework */; };
 /* End PBXBuildFile section */
@@ -129,6 +131,8 @@
 		7C7361C7431EA872BD5EC504 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		9A01768F1CD97FDD0002DC1A /* UIColor+Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Category.swift"; sourceTree = "<group>"; };
 		9A0176911CD981E50002DC1A /* PhotoBroeserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoBroeserCell.swift; sourceTree = "<group>"; };
+		9A1B54591D0E4AA00084284D /* AddFriendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddFriendViewController.swift; sourceTree = "<group>"; };
+		9A1B545B1D0E4B100084284D /* SetupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetupViewController.swift; sourceTree = "<group>"; };
 		9A66F07A1CE4540700C83772 /* ComposeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -347,6 +351,8 @@
 			isa = PBXGroup;
 			children = (
 				04D44C721CA059AD00E6C906 /* ProfileTableViewController.swift */,
+				9A1B54591D0E4AA00084284D /* AddFriendViewController.swift */,
+				9A1B545B1D0E4B100084284D /* SetupViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -605,9 +611,11 @@
 				04C2AB131CB936F5001DAEC5 /* NewfeatureCollectionViewController.swift in Sources */,
 				04D44C711CA0599E00E6C906 /* DiscoverTableViewController.swift in Sources */,
 				0418E2D61CC9172E0048624B /* UIButton+Category.swift in Sources */,
+				9A1B545A1D0E4AA00084284D /* AddFriendViewController.swift in Sources */,
 				04B67D231CA983CD003D3A23 /* PopoverAnimator.swift in Sources */,
 				04DB41991CA438B10016E38C /* VisitorView.swift in Sources */,
 				04C718D61CCFB2D200D9E342 /* StatusTableViewBottomView.swift in Sources */,
+				9A1B545C1D0E4B100084284D /* SetupViewController.swift in Sources */,
 				04D44C351CA055CB00E6C906 /* AppDelegate.swift in Sources */,
 				04FBF47B1CB6A710007B810E /* String+Category.swift in Sources */,
 				049068441CA6DE5E00786278 /* TitleButton.swift in Sources */,
