@@ -8,6 +8,7 @@
 
 import UIKit
 
+let ProfileTopTableViewCellIdentifier = "ProfileTopTableViewCellIdentifier"
 let ProfileTableViewCellIdentifier = "ProfileTableViewCellIdentifier"
 
 class ProfileTableViewController: BaseTableViewController {
@@ -20,7 +21,9 @@ class ProfileTableViewController: BaseTableViewController {
             visitorView?.setupVisitorInfo(false, imageName: "visitordiscover_image_profile", message: "登录后，你的微博、相册、个人资料会显示在这里，展示给别人")
         }
         setupNavigationBar()
+        tableView.registerClass(ProfileTopTableViewCell.self, forCellReuseIdentifier: ProfileTopTableViewCellIdentifier)
         tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: ProfileTableViewCellIdentifier)
+
     }
     
     private func setupNavigationBar() {
@@ -59,9 +62,20 @@ extension ProfileTableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier(ProfileTableViewCellIdentifier, forIndexPath: indexPath)
-        
-        return cell
+        if indexPath.section == 0 {
+            return tableView.dequeueReusableCellWithIdentifier(ProfileTopTableViewCellIdentifier, forIndexPath: indexPath) as! ProfileTopTableViewCell
+        } else {
+            return tableView.dequeueReusableCellWithIdentifier(ProfileTableViewCellIdentifier, forIndexPath: indexPath)
+
+        }
+    }
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        if indexPath.section == 0 {
+            return 100
+        } else {
+            return 44
+        }
     }
 }
 
@@ -78,8 +92,10 @@ class ProfileTopTableViewCell: UITableViewCell {
         contentView.addSubview(labelIntroduce)
         contentView.addSubview(imageViewIcon)
         
-        imageViewHeader.xmg_AlignInner(type: XMG_AlignType.TopLeft, referView: contentView, size: CGSizeMake(40, 40), offset: CGPointMake(10, 10))
-        labelName.xmg_AlignHorizontal(type: XMG_AlignType.TopRight, referView: imageViewHeader, size: CGSizeMake(100, 20), offset: CGPointMake(10, 0))
+        imageViewHeader.xmg_AlignInner(type: XMG_AlignType.TopLeft, referView: contentView, size: CGSizeMake(50, 50), offset: CGPointMake(10, 10))
+        labelName.xmg_AlignHorizontal(type: XMG_AlignType.TopRight, referView: imageViewHeader, size: CGSizeMake(150, 20), offset: CGPointMake(10, 0))
+        labelIntroduce.xmg_AlignVertical(type: XMG_AlignType.BottomLeft, referView: labelName, size: CGSizeMake(150, 20), offset: CGPointMake(0, 10))
+        imageViewIcon.xmg_AlignHorizontal(type: XMG_AlignType.BottomRight, referView: labelName, size: CGSizeMake(35, 25), offset: CGPointMake(10, 15))
     }
     
     private lazy var imageViewHeader: UIImageView = {
