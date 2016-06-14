@@ -32,8 +32,11 @@ class NewfeatureCollectionViewController: UICollectionViewController {
         //注册一个cell
         collectionView?.registerClass(NewfearureCell.self, forCellWithReuseIdentifier: reuseIdentifier)
     }
+}
+
+//MARK: - UICollectionDataSource
+extension NewfeatureCollectionViewController {
     
-    //MARK: - UICollectionDataSource
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return pageCount
     }
@@ -81,7 +84,6 @@ class NewfearureCell: UICollectionViewCell {
                 starButtonAnimation()
             } else {
                 starButton.hidden = true
-                
             }
         }
     }

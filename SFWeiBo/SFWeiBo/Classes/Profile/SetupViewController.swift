@@ -23,6 +23,18 @@ class SetupViewController: UITableViewController {
         tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)
     }
     
+    //MARK: - 懒加载
+    private lazy var label: UILabel = {
+        let label = UILabel()
+        label.textColor = UIColor.orangeColor()
+        label.textAlignment = NSTextAlignment.Center
+        label.text = "退出当前账号"
+        return label
+    }()
+}
+
+extension SetupViewController {
+    
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
             return 2
@@ -56,7 +68,6 @@ class SetupViewController: UITableViewController {
             cell.contentView.addSubview(label)
             label.xmg_Fill(cell.contentView, insets: UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: 0))
         }
-    
         return cell
     }
     
@@ -64,11 +75,13 @@ class SetupViewController: UITableViewController {
         return 20
     }
     
-    private lazy var label: UILabel = {
-        let label = UILabel()
-        label.textColor = UIColor.orangeColor()
-        label.textAlignment = NSTextAlignment.Center
-        label.text = "退出当前账号"
-        return label
-    }()
+    //去除header的粘性
+//    override func scrollViewDidScroll(scrollView: UIScrollView) {
+//        let sectionHeaderHeight:CGFloat = 20
+//        if (scrollView.contentOffset.y <= sectionHeaderHeight && scrollView.contentOffset.y >= 0) {
+//            scrollView.contentInset = UIEdgeInsetsMake(-scrollView.contentOffset.y, 0, 0, 0)
+//        } else if scrollView.contentOffset.y >= sectionHeaderHeight {
+//            scrollView.contentInset = UIEdgeInsetsMake(-sectionHeaderHeight, 0, 0, 0)
+//        }
+//    }
 }

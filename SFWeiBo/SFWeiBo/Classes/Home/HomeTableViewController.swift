@@ -141,7 +141,6 @@ class HomeTableViewController: BaseTableViewController  {
         }
     }
     
-    
     //标题按钮状态
     func change() {
         
