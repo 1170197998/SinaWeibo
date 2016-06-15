@@ -93,9 +93,9 @@ class ProfileTopTableViewCell: UITableViewCell {
         contentView.addSubview(imageViewIcon)
         
         imageViewHeader.xmg_AlignInner(type: XMG_AlignType.TopLeft, referView: contentView, size: CGSizeMake(50, 50), offset: CGPointMake(10, 10))
-        labelName.xmg_AlignHorizontal(type: XMG_AlignType.TopRight, referView: imageViewHeader, size: CGSizeMake(150, 20), offset: CGPointMake(10, 0))
-        labelIntroduce.xmg_AlignVertical(type: XMG_AlignType.BottomLeft, referView: labelName, size: CGSizeMake(150, 20), offset: CGPointMake(0, 10))
-        imageViewIcon.xmg_AlignHorizontal(type: XMG_AlignType.BottomRight, referView: labelName, size: CGSizeMake(35, 25), offset: CGPointMake(10, 15))
+        labelName.xmg_AlignHorizontal(type: XMG_AlignType.TopRight, referView: imageViewHeader, size: CGSizeMake(200, 20), offset: CGPointMake(10, 0))
+        labelIntroduce.xmg_AlignVertical(type: XMG_AlignType.BottomLeft, referView: labelName, size: CGSizeMake(200, 20), offset: CGPointMake(0, 10))
+        imageViewIcon.xmg_AlignHorizontal(type: XMG_AlignType.TopRight, referView: contentView, size: CGSizeMake(35, 25), offset: CGPointMake(-50, 15))
     }
     
     private lazy var imageViewHeader: UIImageView = {
