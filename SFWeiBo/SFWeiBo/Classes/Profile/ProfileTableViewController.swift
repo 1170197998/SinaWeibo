@@ -72,7 +72,7 @@ extension ProfileTableViewController {
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         if indexPath.section == 0 {
-            return 100
+            return 120
         } else {
             return 44
         }
@@ -91,11 +91,13 @@ class ProfileTopTableViewCell: UITableViewCell {
         contentView.addSubview(labelName)
         contentView.addSubview(labelIntroduce)
         contentView.addSubview(imageViewIcon)
+        contentView.addSubview(footerButtonView)
         
         imageViewHeader.xmg_AlignInner(type: XMG_AlignType.TopLeft, referView: contentView, size: CGSizeMake(50, 50), offset: CGPointMake(10, 10))
         labelName.xmg_AlignHorizontal(type: XMG_AlignType.TopRight, referView: imageViewHeader, size: CGSizeMake(200, 20), offset: CGPointMake(10, 0))
         labelIntroduce.xmg_AlignVertical(type: XMG_AlignType.BottomLeft, referView: labelName, size: CGSizeMake(200, 20), offset: CGPointMake(0, 10))
         imageViewIcon.xmg_AlignHorizontal(type: XMG_AlignType.TopRight, referView: contentView, size: CGSizeMake(35, 25), offset: CGPointMake(-50, 15))
+        
     }
     
     private lazy var imageViewHeader: UIImageView = {
@@ -117,6 +119,18 @@ class ProfileTopTableViewCell: UITableViewCell {
         let imageView = UIImageView()
         imageView.backgroundColor = UIColor.orangeColor()
         return imageView
+    }()
+    private lazy var footerButtonView: UIView = {
+        let view = UIView()
+        for _ in 1 ... 3 {
+            view.addSubview(footerButton)
+        }
+        return view
+    }()
+    private lazy var footerButton: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = UIColor.orangeColor()
+        return button;
     }()
     
     required init?(coder aDecoder: NSCoder) {
