@@ -53,8 +53,7 @@ class User: NSObject {
     var mbrankImage: UIImage?
     
     // 字典转模型
-    init(dict: [String: AnyObject])
-    {
+    init(dict: [String: AnyObject]) {
         super.init()
         setValuesForKeysWithDictionary(dict)
     }

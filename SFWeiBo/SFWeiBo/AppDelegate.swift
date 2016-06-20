@@ -86,6 +86,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //获取到的当前版本 <= 之前的版本 = 没有新版本
         return false
     }
-
 }
 

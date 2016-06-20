@@ -68,7 +68,6 @@ extension NSDate {
             }
         }
         
-        
         //按照指定的格式将日期转换为字符串
         //创建formatter
         let formatter = NSDateFormatter()

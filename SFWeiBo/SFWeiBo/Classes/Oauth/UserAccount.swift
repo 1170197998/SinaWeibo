@@ -87,7 +87,6 @@ class UserAccount: NSObject,NSCoding {
         }
     }
     
-    
     //返回用户是否登录
     class func userLogin() -> Bool {
         return UserAccount.loadAccount() != nil
