@@ -22,12 +22,12 @@ class WelcomeViewController: UIViewController {
         view.addSubview(messageLabel)
         
         // 2.布局子控件
-        bgIV.xmg_Fill(view)
+        bgIV.Fill(view)
 
-        let cons = iconView.xmg_AlignInner(type: XMG_AlignType.BottomCenter, referView: view, size: CGSize(width: 100, height: 100), offset: CGPoint(x: 0, y: -150))
+        let cons = iconView.AlignInner(type: AlignType.BottomCenter, referView: view, size: CGSize(width: 100, height: 100), offset: CGPoint(x: 0, y: -150))
         // 拿到头像的底部约束
-        bottomCons = iconView.xmg_Constraint(cons, attribute: NSLayoutAttribute.Bottom)
-        messageLabel.xmg_AlignVertical(type: XMG_AlignType.BottomCenter, referView: iconView, size: nil, offset: CGPoint(x: 0, y: 20))
+        bottomCons = iconView.Constraint(cons, attribute: NSLayoutAttribute.Bottom)
+        messageLabel.AlignVertical(type: AlignType.BottomCenter, referView: iconView, size: nil, offset: CGPoint(x: 0, y: 20))
         
         // 3.设置用户头像
         if let iconUrl = UserAccount.loadAccount()?.avatar_large {

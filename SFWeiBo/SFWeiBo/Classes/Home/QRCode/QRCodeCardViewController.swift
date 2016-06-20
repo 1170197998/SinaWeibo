@@ -20,7 +20,7 @@ class QRCodeCardViewController: UIViewController {
         //添加图片容器
         view.addSubview(iconView)
         //布局图片容器
-        iconView.xmg_AlignInner(type: XMG_AlignType.Center, referView: view, size: CGSize(width: 200, height: 200))
+        iconView.AlignInner(type: AlignType.Center, referView: view, size: CGSize(width: 200, height: 200))
         //生成二维码
         let qrcodeImage = creatQRCodeImage()
         //将生成的二维码添加到图片容器上

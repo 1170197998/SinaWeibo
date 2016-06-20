@@ -25,7 +25,7 @@ class StatusTableViewBottomView: UIView {
         addSubview(unlikeBtn)
         addSubview(commonBtn)
         // 2.布局子控件（平铺，距离周围的间隙）
-        xmg_HorizontalTile([retweetBtn, unlikeBtn, commonBtn], insets: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0))
+        HorizontalTile([retweetBtn, unlikeBtn, commonBtn], insets: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0))
     }
     
     // MARK: - 懒加载

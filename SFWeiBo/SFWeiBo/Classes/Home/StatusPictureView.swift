@@ -111,8 +111,8 @@ class StatusPictureView: UICollectionView {
             iconImageView.addSubview(gifImageView)
 
             // 2.布局子控件
-            iconImageView.xmg_Fill(contentView)
-            gifImageView.xmg_AlignInner(type: XMG_AlignType.BottomRight, referView: iconImageView, size: nil)
+            iconImageView.Fill(contentView)
+            gifImageView.AlignInner(type: AlignType.BottomRight, referView: iconImageView, size: nil)
         }
         
         // MARK: - 懒加载

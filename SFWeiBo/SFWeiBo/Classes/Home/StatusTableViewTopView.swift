@@ -48,12 +48,12 @@ class StatusTableViewTopView: UIView {
         addSubview(sourceLabel)
         
         // 2.布局子控件（平铺，距离周围的间隙）
-        iconView.xmg_AlignInner(type: XMG_AlignType.TopLeft, referView: self, size: CGSize(width: 50, height: 50), offset: CGPoint(x: 10, y: 10))
-        verifiedView.xmg_AlignInner(type: XMG_AlignType.BottomRight, referView: iconView, size: CGSize(width: 14, height: 14), offset: CGPoint(x:5, y:5))
-        nameLabel.xmg_AlignHorizontal(type: XMG_AlignType.TopRight, referView: iconView, size: nil, offset: CGPoint(x: 10, y: 0))
-        vipView.xmg_AlignHorizontal(type: XMG_AlignType.TopRight, referView: nameLabel, size: CGSize(width: 14, height: 14), offset: CGPoint(x: 10, y: 0))
-        timeLabel.xmg_AlignHorizontal(type: XMG_AlignType.BottomRight, referView: iconView, size: nil, offset: CGPoint(x: 10, y: 0))
-        sourceLabel.xmg_AlignHorizontal(type: XMG_AlignType.BottomRight, referView: timeLabel, size: nil, offset: CGPoint(x: 10, y: 0))
+        iconView.AlignInner(type: AlignType.TopLeft, referView: self, size: CGSize(width: 50, height: 50), offset: CGPoint(x: 10, y: 10))
+        verifiedView.AlignInner(type: AlignType.BottomRight, referView: iconView, size: CGSize(width: 14, height: 14), offset: CGPoint(x:5, y:5))
+        nameLabel.AlignHorizontal(type: AlignType.TopRight, referView: iconView, size: nil, offset: CGPoint(x: 10, y: 0))
+        vipView.AlignHorizontal(type: AlignType.TopRight, referView: nameLabel, size: CGSize(width: 14, height: 14), offset: CGPoint(x: 10, y: 0))
+        timeLabel.AlignHorizontal(type: AlignType.BottomRight, referView: iconView, size: nil, offset: CGPoint(x: 10, y: 0))
+        sourceLabel.AlignHorizontal(type: AlignType.BottomRight, referView: timeLabel, size: nil, offset: CGPoint(x: 10, y: 0))
     }
     
     // MARK: - 懒加载

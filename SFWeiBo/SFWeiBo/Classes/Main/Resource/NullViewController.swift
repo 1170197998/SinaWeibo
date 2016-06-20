@@ -1,6 +1,6 @@
 //
 //  NullViewController.swift
-//  XMGWeibo
+//  Weibo
 //
 //  Created by mac on 15/8/31.
 //  Copyright © 2015年 mac. All rights reserved.

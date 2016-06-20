@@ -67,9 +67,9 @@ class AddFriendTableViewCell: UITableViewCell {
         contentView.addSubview(title)
         contentView.addSubview(subTitle)
         
-        imageViewIcon.xmg_AlignInner(type: XMG_AlignType.TopLeft, referView: contentView, size: CGSizeMake(38, 40), offset: CGPointMake(10, 10))
-        title.xmg_AlignHorizontal(type: XMG_AlignType.TopRight, referView: imageViewIcon, size: CGSizeMake(150, 20), offset: CGPointMake(10, 0))
-        subTitle.xmg_AlignVertical(type: XMG_AlignType.BottomLeft, referView: title, size: CGSizeMake(150, 20), offset: CGPointMake(0, 5))
+        imageViewIcon.AlignInner(type: AlignType.TopLeft, referView: contentView, size: CGSizeMake(38, 40), offset: CGPointMake(10, 10))
+        title.AlignHorizontal(type: AlignType.TopRight, referView: imageViewIcon, size: CGSizeMake(150, 20), offset: CGPointMake(10, 0))
+        subTitle.AlignVertical(type: AlignType.BottomLeft, referView: title, size: CGSizeMake(150, 20), offset: CGPointMake(0, 5))
     }
     
     lazy var imageViewIcon : UIImageView = {

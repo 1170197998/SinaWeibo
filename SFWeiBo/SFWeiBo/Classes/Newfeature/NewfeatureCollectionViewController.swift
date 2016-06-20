@@ -121,8 +121,8 @@ class NewfearureCell: UICollectionViewCell {
         contentView.addSubview(iconView)
         contentView.addSubview(starButton)
         //布局子控件位置(填充屏幕)
-        iconView.xmg_Fill(contentView)
-        starButton.xmg_AlignInner(type: XMG_AlignType.BottomCenter, referView: contentView, size: nil, offset: CGPoint(x: 0, y: -160))
+        iconView.Fill(contentView)
+        starButton.AlignInner(type: AlignType.BottomCenter, referView: contentView, size: nil, offset: CGPoint(x: 0, y: -160))
     }
     
     //MARK:  懒加载

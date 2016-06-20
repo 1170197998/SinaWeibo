@@ -38,8 +38,8 @@ class PhotoBrowserViewController: UIViewController {
         view.addSubview(saveButton)
         
         //布局控件
-        closeButton.xmg_AlignInner(type: XMG_AlignType.BottomLeft, referView: view, size: CGSizeMake(100, 35),offset: CGPointMake(10, -10))
-        saveButton.xmg_AlignInner(type: XMG_AlignType.BottomRight, referView: view, size: CGSizeMake(100, 35),offset: CGPointMake(-10, -10))
+        closeButton.AlignInner(type: AlignType.BottomLeft, referView: view, size: CGSizeMake(100, 35),offset: CGPointMake(10, -10))
+        saveButton.AlignInner(type: AlignType.BottomRight, referView: view, size: CGSizeMake(100, 35),offset: CGPointMake(-10, -10))
         collectionView.frame = UIScreen.mainScreen().bounds
         
         //设置数据源

@@ -1,9 +1,9 @@
 //
 //  UIView+AutoLayout.swift
-//  XMGWeibo
+//  Weibo
 //
-//  Created by 李南江 on 15/9/1.
-//  Copyright © 2015年 xiaomage. All rights reserved.
+//  Created by apple on 15/9/1.
+//  Copyright © 2015年 mac. All rights reserved.
 //
 
 import UIKit
@@ -19,7 +19,7 @@ import UIKit
   - CenterRight:  右中
   - Center: 中中
 */
-public enum XMG_AlignType {
+public enum AlignType {
     case TopLeft
     case TopRight
     case TopCenter
@@ -30,8 +30,8 @@ public enum XMG_AlignType {
     case CenterRight
     case Center
     
-    private func layoutAttributes(isInner: Bool, isVertical: Bool) -> XMG_LayoutAttributes {
-        let attributes = XMG_LayoutAttributes()
+    private func layoutAttributes(isInner: Bool, isVertical: Bool) -> LayoutAttributes {
+        let attributes = LayoutAttributes()
         
         switch self {
             case .TopLeft:
@@ -92,7 +92,7 @@ public enum XMG_AlignType {
                 return isInner ? attributes : attributes.horizontals(.Left, to: .Right)
             // 仅内部参照需要
             case .Center:
-                return XMG_LayoutAttributes(horizontal: .CenterX, referHorizontal: .CenterX, vertical: .CenterY, referVertical: .CenterY)
+                return LayoutAttributes(horizontal: .CenterX, referHorizontal: .CenterX, vertical: .CenterY, referVertical: .CenterY)
         }
     }
 }
@@ -108,7 +108,7 @@ extension UIView {
     
     :returns: 约束数组
     */
-    public func xmg_Fill(referView: UIView, insets: UIEdgeInsets = UIEdgeInsetsZero) -> [NSLayoutConstraint] {
+    public func Fill(referView: UIView, insets: UIEdgeInsets = UIEdgeInsetsZero) -> [NSLayoutConstraint] {
         translatesAutoresizingMaskIntoConstraints = false
         
         var cons = [NSLayoutConstraint]()
@@ -131,9 +131,9 @@ extension UIView {
     
     :returns: 约束数组
     */
-    public func xmg_AlignInner(type type: XMG_AlignType, referView: UIView, size: CGSize?, offset: CGPoint = CGPointZero) -> [NSLayoutConstraint]  {
+    public func AlignInner(type type: AlignType, referView: UIView, size: CGSize?, offset: CGPoint = CGPointZero) -> [NSLayoutConstraint]  {
         
-        return xmg_AlignLayout(referView, attributes: type.layoutAttributes(true, isVertical: true), size: size, offset: offset)
+        return AlignLayout(referView, attributes: type.layoutAttributes(true, isVertical: true), size: size, offset: offset)
     }
 
     /**
@@ -146,9 +146,9 @@ extension UIView {
     
     :returns: 约束数组
     */
-    public func xmg_AlignVertical(type type: XMG_AlignType, referView: UIView, size: CGSize?, offset: CGPoint = CGPointZero) -> [NSLayoutConstraint] {
+    public func AlignVertical(type type: AlignType, referView: UIView, size: CGSize?, offset: CGPoint = CGPointZero) -> [NSLayoutConstraint] {
         
-        return xmg_AlignLayout(referView, attributes: type.layoutAttributes(false, isVertical: true), size: size, offset: offset)
+        return AlignLayout(referView, attributes: type.layoutAttributes(false, isVertical: true), size: size, offset: offset)
     }
     
     /**
@@ -161,9 +161,9 @@ extension UIView {
     
     :returns: 约束数组
     */
-    public func xmg_AlignHorizontal(type type: XMG_AlignType, referView: UIView, size: CGSize?, offset: CGPoint = CGPointZero) -> [NSLayoutConstraint] {
+    public func AlignHorizontal(type type: AlignType, referView: UIView, size: CGSize?, offset: CGPoint = CGPointZero) -> [NSLayoutConstraint] {
         
-        return xmg_AlignLayout(referView, attributes: type.layoutAttributes(false, isVertical: false), size: size, offset: offset)
+        return AlignLayout(referView, attributes: type.layoutAttributes(false, isVertical: false), size: size, offset: offset)
     }
 
     /**
@@ -174,22 +174,22 @@ extension UIView {
     
     :returns: 约束数组
     */
-    public func xmg_HorizontalTile(views: [UIView], insets: UIEdgeInsets) -> [NSLayoutConstraint] {
+    public func HorizontalTile(views: [UIView], insets: UIEdgeInsets) -> [NSLayoutConstraint] {
         
         assert(!views.isEmpty, "views should not be empty")
         
         var cons = [NSLayoutConstraint]()
         
         let firstView = views[0]
-        firstView.xmg_AlignInner(type: XMG_AlignType.TopLeft, referView: self, size: nil, offset: CGPoint(x: insets.left, y: insets.top))
+        firstView.AlignInner(type: AlignType.TopLeft, referView: self, size: nil, offset: CGPoint(x: insets.left, y: insets.top))
         cons.append(NSLayoutConstraint(item: firstView, attribute: NSLayoutAttribute.Bottom, relatedBy: NSLayoutRelation.Equal, toItem: self, attribute: NSLayoutAttribute.Bottom, multiplier: 1.0, constant: -insets.bottom))
         
         // 添加后续视图的约束
         var preView = firstView
         for i in 1..<views.count {
             let subView = views[i]
-            cons += subView.xmg_sizeConstraints(firstView)
-            subView.xmg_AlignHorizontal(type: XMG_AlignType.TopRight, referView: preView, size: nil, offset: CGPoint(x: insets.right, y: 0))
+            cons += subView.sizeConstraints(firstView)
+            subView.AlignHorizontal(type: AlignType.TopRight, referView: preView, size: nil, offset: CGPoint(x: insets.right, y: 0))
             preView = subView
         }
         
@@ -208,22 +208,22 @@ extension UIView {
     
     :returns: 约束数组
     */
-    public func xmg_VerticalTile(views: [UIView], insets: UIEdgeInsets) -> [NSLayoutConstraint] {
+    public func VerticalTile(views: [UIView], insets: UIEdgeInsets) -> [NSLayoutConstraint] {
         
         assert(!views.isEmpty, "views should not be empty")
         
         var cons = [NSLayoutConstraint]()
         
         let firstView = views[0]
-        firstView.xmg_AlignInner(type: XMG_AlignType.TopLeft, referView: self, size: nil, offset: CGPoint(x: insets.left, y: insets.top))
+        firstView.AlignInner(type: AlignType.TopLeft, referView: self, size: nil, offset: CGPoint(x: insets.left, y: insets.top))
         cons.append(NSLayoutConstraint(item: firstView, attribute: NSLayoutAttribute.Right, relatedBy: NSLayoutRelation.Equal, toItem: self, attribute: NSLayoutAttribute.Right, multiplier: 1.0, constant: -insets.right))
         
         // 添加后续视图的约束
         var preView = firstView
         for i in 1..<views.count {
             let subView = views[i]
-            cons += subView.xmg_sizeConstraints(firstView)
-            subView.xmg_AlignVertical(type: XMG_AlignType.BottomLeft, referView: preView, size: nil, offset: CGPoint(x: 0, y: insets.bottom))
+            cons += subView.sizeConstraints(firstView)
+            subView.AlignVertical(type: AlignType.BottomLeft, referView: preView, size: nil, offset: CGPoint(x: 0, y: insets.bottom))
             preView = subView
         }
         
@@ -243,7 +243,7 @@ extension UIView {
     
     :returns: 对应的约束
     */
-    public func xmg_Constraint(constraintsList: [NSLayoutConstraint], attribute: NSLayoutAttribute) -> NSLayoutConstraint? {
+    public func Constraint(constraintsList: [NSLayoutConstraint], attribute: NSLayoutAttribute) -> NSLayoutConstraint? {
         for constraint in constraintsList {
             if constraint.firstItem as! NSObject == self && constraint.firstAttribute == attribute {
                 return constraint
@@ -264,16 +264,16 @@ extension UIView {
     
     :returns: 约束数组
     */
-    private func xmg_AlignLayout(referView: UIView, attributes: XMG_LayoutAttributes, size: CGSize?, offset: CGPoint) -> [NSLayoutConstraint] {
+    private func AlignLayout(referView: UIView, attributes: LayoutAttributes, size: CGSize?, offset: CGPoint) -> [NSLayoutConstraint] {
         
         translatesAutoresizingMaskIntoConstraints = false
         
         var cons = [NSLayoutConstraint]()
         
-        cons += xmg_positionConstraints(referView, attributes: attributes, offset: offset)
+        cons += positionConstraints(referView, attributes: attributes, offset: offset)
         
         if size != nil {
-            cons += xmg_sizeConstraints(size!)
+            cons += sizeConstraints(size!)
         }
         
         superview?.addConstraints(cons)
@@ -289,7 +289,7 @@ extension UIView {
     
     :returns: 约束数组
     */
-    private func xmg_sizeConstraints(size: CGSize) -> [NSLayoutConstraint] {
+    private func sizeConstraints(size: CGSize) -> [NSLayoutConstraint] {
         
         var cons = [NSLayoutConstraint]()
         
@@ -307,7 +307,7 @@ extension UIView {
     
     :returns: 约束数组
     */
-    private func xmg_sizeConstraints(referView: UIView) -> [NSLayoutConstraint] {
+    private func sizeConstraints(referView: UIView) -> [NSLayoutConstraint] {
         
         var cons = [NSLayoutConstraint]()
         
@@ -326,7 +326,7 @@ extension UIView {
     
     :returns: 约束数组
     */
-    private func xmg_positionConstraints(referView: UIView, attributes: XMG_LayoutAttributes, offset: CGPoint) -> [NSLayoutConstraint] {
+    private func positionConstraints(referView: UIView, attributes: LayoutAttributes, offset: CGPoint) -> [NSLayoutConstraint] {
         
         var cons = [NSLayoutConstraint]()
         
@@ -338,7 +338,7 @@ extension UIView {
 }
 
 ///  布局属性
-private final class XMG_LayoutAttributes {
+private final class LayoutAttributes {
     var horizontal:         NSLayoutAttribute
     var referHorizontal:    NSLayoutAttribute
     var vertical:           NSLayoutAttribute

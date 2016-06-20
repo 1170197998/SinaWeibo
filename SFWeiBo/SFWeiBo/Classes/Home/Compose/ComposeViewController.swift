@@ -35,8 +35,8 @@ class ComposeViewController: UIViewController {
         view.addSubview(textView)
         textView.addSubview(placeholderLabel)
         
-        textView.xmg_Fill(view)
-        placeholderLabel.xmg_AlignInner(type: XMG_AlignType.TopLeft, referView: textView, size: nil, offset: CGPoint(x: 5, y: 8))
+        textView.Fill(view)
+        placeholderLabel.AlignInner(type: AlignType.TopLeft, referView: textView, size: nil, offset: CGPoint(x: 5, y: 8))
     }
     
     ///初始化导航条
@@ -60,8 +60,8 @@ class ComposeViewController: UIViewController {
         label2.text = UserAccount.loadAccount()?.screen_name
         label2.sizeToFit()
         titleView.addSubview(label2)
-        label1.xmg_AlignInner(type: XMG_AlignType.TopCenter, referView: titleView, size: nil)
-        label2.xmg_AlignInner(type: XMG_AlignType.BottomCenter, referView: titleView, size: nil)
+        label1.AlignInner(type: AlignType.TopCenter, referView: titleView, size: nil)
+        label2.AlignInner(type: AlignType.BottomCenter, referView: titleView, size: nil)
         navigationItem.titleView = titleView
     }
     

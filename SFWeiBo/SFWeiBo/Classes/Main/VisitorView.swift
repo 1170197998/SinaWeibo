@@ -61,22 +61,22 @@ class VisitorView: UIView {
         addSubview(registerButton)
         //布局子空间
         //设置背景
-        iconView.xmg_AlignInner(type:XMG_AlignType.Center, referView: self, size: nil)
+        iconView.AlignInner(type:AlignType.Center, referView: self, size: nil)
         //设置小房子
-        homeIcon.xmg_AlignInner(type: XMG_AlignType.Center, referView: self, size: nil)
+        homeIcon.AlignInner(type: AlignType.Center, referView: self, size: nil)
         //设置文本
-        messageLabel.xmg_AlignVertical(type: XMG_AlignType.BottomCenter, referView: iconView, size: nil)
+        messageLabel.AlignVertical(type: AlignType.BottomCenter, referView: iconView, size: nil)
         
         //"哪个控件"的"什么属性" "等于" "另一个控件" "乘以多少" "加上多少"
         let widthCons = NSLayoutConstraint(item: messageLabel, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1.0, constant: 224)
         addConstraint(widthCons)
         
         //设置按钮
-        registerButton.xmg_AlignVertical(type: XMG_AlignType.BottomLeft, referView: messageLabel, size: CGSizeMake(100, 30), offset: CGPointMake(0, 20))
-        loginButton.xmg_AlignVertical(type: XMG_AlignType.BottomRight, referView: messageLabel, size: CGSizeMake(100, 30), offset: CGPointMake(0, 20))
+        registerButton.AlignVertical(type: AlignType.BottomLeft, referView: messageLabel, size: CGSizeMake(100, 30), offset: CGPointMake(0, 20))
+        loginButton.AlignVertical(type: AlignType.BottomRight, referView: messageLabel, size: CGSizeMake(100, 30), offset: CGPointMake(0, 20))
         
         //设置蒙版
-        maskBackGroundView.xmg_Fill(self)
+        maskBackGroundView.Fill(self)
     }
 
     //swift推荐自定义一个控件,要么纯代码,要吗用xib/storyBoard

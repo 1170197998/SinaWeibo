@@ -66,7 +66,6 @@ extension ProfileTableViewController {
             return tableView.dequeueReusableCellWithIdentifier(ProfileTopTableViewCellIdentifier, forIndexPath: indexPath) as! ProfileTopTableViewCell
         } else {
             return tableView.dequeueReusableCellWithIdentifier(ProfileTableViewCellIdentifier, forIndexPath: indexPath)
-
         }
     }
     
@@ -96,12 +95,12 @@ class ProfileTopTableViewCell: UITableViewCell {
         footerButtonView.addSubview(footerButton2)
         footerButtonView.addSubview(footerButton3)
 
-        imageViewHeader.xmg_AlignInner(type: XMG_AlignType.TopLeft, referView: contentView, size: CGSizeMake(50, 50), offset: CGPointMake(10, 10))
-        imageViewIcon.xmg_AlignHorizontal(type: XMG_AlignType.TopRight, referView: contentView, size: CGSizeMake(35, 25), offset: CGPointMake(-50, 20))
-        labelName.xmg_AlignHorizontal(type: XMG_AlignType.TopRight, referView: imageViewHeader, size: CGSizeMake(UIScreen.mainScreen().bounds.width - 60 - 70, 20),offset: CGPointMake(10, 0))
-        labelIntroduce.xmg_AlignVertical(type: XMG_AlignType.BottomLeft, referView: labelName, size: CGSizeMake(UIScreen.mainScreen().bounds.width - 60 - 70, 20), offset: CGPointMake(0, 10))
-        footerButtonView.xmg_AlignVertical(type: XMG_AlignType.BottomLeft, referView: imageViewHeader, size: CGSize(width: UIScreen.mainScreen().bounds.width, height: 44), offset: CGPoint(x: -10, y: 10))
-        footerButtonView.xmg_HorizontalTile([footerButton1,footerButton2,footerButton3], insets: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0))
+        imageViewHeader.AlignInner(type: AlignType.TopLeft, referView: contentView, size: CGSizeMake(50, 50), offset: CGPointMake(10, 10))
+        imageViewIcon.AlignHorizontal(type: AlignType.TopRight, referView: contentView, size: CGSizeMake(35, 25), offset: CGPointMake(-50, 20))
+        labelName.AlignHorizontal(type: AlignType.TopRight, referView: imageViewHeader, size: CGSizeMake(UIScreen.mainScreen().bounds.width - 60 - 70, 20),offset: CGPointMake(10, 0))
+        labelIntroduce.AlignVertical(type: AlignType.BottomLeft, referView: labelName, size: CGSizeMake(UIScreen.mainScreen().bounds.width - 60 - 70, 20), offset: CGPointMake(0, 10))
+        footerButtonView.AlignVertical(type: AlignType.BottomLeft, referView: imageViewHeader, size: CGSize(width: UIScreen.mainScreen().bounds.width, height: 44), offset: CGPoint(x: -10, y: 10))
+        footerButtonView.HorizontalTile([footerButton1,footerButton2,footerButton3], insets: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0))
     }
     
     private lazy var imageViewHeader: UIImageView = {

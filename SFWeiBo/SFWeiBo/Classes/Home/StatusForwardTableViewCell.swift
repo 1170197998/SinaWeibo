@@ -31,15 +31,15 @@ class StatusForwardTableViewCell: StatusTableViewCell {
         contentView.insertSubview(forwardLabel, aboveSubview: forwardButton)
 
         //布局子控件,访问父类中的成员变量时，该成员变量也不能是private
-        forwardButton.xmg_AlignVertical(type: XMG_AlignType.BottomLeft, referView: contentLabel, size: nil, offset: CGPointMake(-10, 10))
-        forwardButton.xmg_AlignVertical(type: XMG_AlignType.TopRight, referView: footerView, size: nil)
-        forwardLabel.xmg_AlignInner(type: XMG_AlignType.TopLeft, referView: forwardButton, size: nil, offset: CGPoint(x: 10, y: 10))
+        forwardButton.AlignVertical(type: AlignType.BottomLeft, referView: contentLabel, size: nil, offset: CGPointMake(-10, 10))
+        forwardButton.AlignVertical(type: AlignType.TopRight, referView: footerView, size: nil)
+        forwardLabel.AlignInner(type: AlignType.TopLeft, referView: forwardButton, size: nil, offset: CGPoint(x: 10, y: 10))
         
         // 2.布局子控件
-        let cons = pictureView.xmg_AlignVertical(type: XMG_AlignType.BottomLeft, referView: forwardLabel, size: CGSizeZero, offset: CGPoint(x: 0, y: 10))
-        pictureWidthCons = pictureView.xmg_Constraint(cons, attribute: NSLayoutAttribute.Width)
-        pictureHeightCons = pictureView.xmg_Constraint(cons, attribute: NSLayoutAttribute.Height)
-        pictureTopCons = pictureView.xmg_Constraint(cons, attribute: NSLayoutAttribute.Top)
+        let cons = pictureView.AlignVertical(type: AlignType.BottomLeft, referView: forwardLabel, size: CGSizeZero, offset: CGPoint(x: 0, y: 10))
+        pictureWidthCons = pictureView.Constraint(cons, attribute: NSLayoutAttribute.Width)
+        pictureHeightCons = pictureView.Constraint(cons, attribute: NSLayoutAttribute.Height)
+        pictureTopCons = pictureView.Constraint(cons, attribute: NSLayoutAttribute.Top)
     }
     
     //MARK: - 懒加载

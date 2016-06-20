@@ -73,9 +73,9 @@ class StatusTableViewCell: UITableViewCell {
         
         let width = UIScreen.mainScreen().bounds.width
         // 2.布局子控件
-        topView.xmg_AlignInner(type: XMG_AlignType.TopLeft, referView: contentView, size: CGSizeMake(width, 60))
-        contentLabel.xmg_AlignVertical(type: XMG_AlignType.BottomLeft, referView: topView, size: nil, offset: CGPoint(x: 10, y: 10))
-        footerView.xmg_AlignVertical(type: XMG_AlignType.BottomLeft, referView: pictureView, size: CGSize(width: width, height: 44), offset: CGPoint(x: -10, y: 10))
+        topView.AlignInner(type: AlignType.TopLeft, referView: contentView, size: CGSizeMake(width, 60))
+        contentLabel.AlignVertical(type: AlignType.BottomLeft, referView: topView, size: nil, offset: CGPoint(x: 10, y: 10))
+        footerView.AlignVertical(type: AlignType.BottomLeft, referView: pictureView, size: CGSize(width: width, height: 44), offset: CGPoint(x: -10, y: 10))
     }
     
     //用于获取行高
