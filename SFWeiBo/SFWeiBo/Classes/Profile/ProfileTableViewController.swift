@@ -92,12 +92,16 @@ class ProfileTopTableViewCell: UITableViewCell {
         contentView.addSubview(labelIntroduce)
         contentView.addSubview(imageViewIcon)
         contentView.addSubview(footerButtonView)
-        
+        footerButtonView.addSubview(footerButton1)
+        footerButtonView.addSubview(footerButton2)
+        footerButtonView.addSubview(footerButton3)
+
         imageViewHeader.xmg_AlignInner(type: XMG_AlignType.TopLeft, referView: contentView, size: CGSizeMake(50, 50), offset: CGPointMake(10, 10))
-        labelName.xmg_AlignHorizontal(type: XMG_AlignType.TopRight, referView: imageViewHeader, size: CGSizeMake(200, 20), offset: CGPointMake(10, 0))
-        labelIntroduce.xmg_AlignVertical(type: XMG_AlignType.BottomLeft, referView: labelName, size: CGSizeMake(200, 20), offset: CGPointMake(0, 10))
-        imageViewIcon.xmg_AlignHorizontal(type: XMG_AlignType.TopRight, referView: contentView, size: CGSizeMake(35, 25), offset: CGPointMake(-50, 15))
-        
+        imageViewIcon.xmg_AlignHorizontal(type: XMG_AlignType.TopRight, referView: contentView, size: CGSizeMake(35, 25), offset: CGPointMake(-50, 20))
+        labelName.xmg_AlignHorizontal(type: XMG_AlignType.TopRight, referView: imageViewHeader, size: CGSizeMake(UIScreen.mainScreen().bounds.width - 60 - 70, 20),offset: CGPointMake(10, 0))
+        labelIntroduce.xmg_AlignVertical(type: XMG_AlignType.BottomLeft, referView: labelName, size: CGSizeMake(UIScreen.mainScreen().bounds.width - 60 - 70, 20), offset: CGPointMake(0, 10))
+        footerButtonView.xmg_AlignVertical(type: XMG_AlignType.BottomLeft, referView: imageViewHeader, size: CGSize(width: UIScreen.mainScreen().bounds.width, height: 44), offset: CGPoint(x: -10, y: 10))
+        footerButtonView.xmg_HorizontalTile([footerButton1,footerButton2,footerButton3], insets: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0))
     }
     
     private lazy var imageViewHeader: UIImageView = {
@@ -122,14 +126,25 @@ class ProfileTopTableViewCell: UITableViewCell {
     }()
     private lazy var footerButtonView: UIView = {
         let view = UIView()
-        for _ in 1 ... 3 {
-            view.addSubview(footerButton)
-        }
+        view.backgroundColor = UIColor.grayColor()
         return view
     }()
-    private lazy var footerButton: UIButton = {
+    private lazy var footerButton1: UIButton = {
         let button = UIButton()
         button.backgroundColor = UIColor.orangeColor()
+        button.setTitle("微博", forState: UIControlState.Normal)
+        return button;
+    }()
+    private lazy var footerButton2: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = UIColor.blueColor()
+        button.setTitle("关注", forState: UIControlState.Normal)
+        return button;
+    }()
+    private lazy var footerButton3: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = UIColor.orangeColor()
+        button.setTitle("粉丝", forState: UIControlState.Normal)
         return button;
     }()
     
