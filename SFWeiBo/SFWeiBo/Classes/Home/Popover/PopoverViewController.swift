@@ -10,26 +10,36 @@ import UIKit
 
 class PopoverViewController: UIViewController {
 
+    @IBOutlet var tableView: UITableView!
+    let arrayTitle = ["首页","好友圈","特别关注","媒体","同事","同学","名人明星","悄悄关注"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        tableView.delegate = self
+        tableView.dataSource = self
     }
+}
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+extension PopoverViewController: UITableViewDelegate,UITableViewDataSource {
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return arrayTitle.count
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+       
+        var cell = tableView.dequeueReusableCellWithIdentifier("id")
+        if (cell == nil) {
+            cell = UITableViewCell.init(style: UITableViewCellStyle.Default, reuseIdentifier: "id")
+        }
+        cell?.textLabel?.text = arrayTitle[indexPath.row]
+        return cell!
     }
-    */
-
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        print("界面切换")
+        dismissViewControllerAnimated(true, completion: nil)
+    }
 }
+
