@@ -92,9 +92,9 @@ class PopoverAnimator: NSObject, UIViewControllerTransitioningDelegate,UIViewCon
             UIView.animateWithDuration(transitionDuration(transitionContext), animations: { () -> Void in
                 //清空transform
                 toView?.transform = CGAffineTransformIdentity
-                }) { (_) -> Void in
-                    //动画执行完毕后,一定要告诉系统
-                    transitionContext.completeTransition(true)
+            }) { (_) -> Void in
+                //动画执行完毕后,一定要告诉系统
+                transitionContext.completeTransition(true)
             }
         } else {
             

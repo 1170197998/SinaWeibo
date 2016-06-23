@@ -100,7 +100,6 @@ class Status: NSObject {
         if max_id > 0 {
             //max_id - 1 移除末尾重复的数据
             params["max_id"] = "\(max_id - 1)"
-
         }
         
         NetworkTools.shareNetworkTools().GET(path, parameters: params, progress: { (_) -> Void in

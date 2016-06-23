@@ -110,7 +110,6 @@ extension OAuthViewController: UIWebViewDelegate {
                     NSNotificationCenter.defaultCenter().postNotificationName(SFSwitchRootViewController, object: false)
                     return
                 }
-                
                 SVProgressHUD.showInfoWithStatus("网络不给力...")
                 SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.Black)
             })
@@ -122,4 +121,3 @@ extension OAuthViewController: UIWebViewDelegate {
         }
     }
 }
-

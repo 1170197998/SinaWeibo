@@ -74,7 +74,6 @@ class PhotoBrowserViewController: UIViewController {
     
     private lazy var collectionView:UICollectionView = UICollectionView(frame: CGRectZero,collectionViewLayout: photoBrowserLayout())
     
-    
     func close() {
         dismissViewControllerAnimated(true, completion: nil)
     }

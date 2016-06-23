@@ -32,7 +32,7 @@ class User: NSObject {
         //数据请求下来后根据认证类型确定认证图标
         didSet {
             switch verified_type {
-              
+                
             case 0:verifiedImage = UIImage(named: "avatar_vip")
             case 2,3,5: verifiedImage = UIImage(named: "avatar_enterprise_vip")
             case 220: verifiedImage = UIImage(named: "avatar_grassroot")

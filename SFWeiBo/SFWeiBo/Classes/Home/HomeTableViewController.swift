@@ -252,7 +252,6 @@ extension HomeTableViewController {
             pullupRefreshFlag = true
             loadData()
         }
-        
         return cell
     }
     

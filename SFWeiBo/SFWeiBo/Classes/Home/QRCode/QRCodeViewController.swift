@@ -156,7 +156,6 @@ class QRCodeViewController: UIViewController,UITabBarDelegate {
             print(error)
             return nil
         }
-        
     }()
     
     //拿到输出设备
@@ -164,7 +163,7 @@ class QRCodeViewController: UIViewController,UITabBarDelegate {
     
     //创建预览图层
     private lazy var previewLayer: AVCaptureVideoPreviewLayer = {
-       
+        
         let layer = AVCaptureVideoPreviewLayer(session: self.session)
         layer.frame = UIScreen.mainScreen().bounds
         return layer
@@ -172,7 +171,7 @@ class QRCodeViewController: UIViewController,UITabBarDelegate {
     
     //创建用于绘制变现的图层
     private lazy var drawLayer: CALayer = {
-       
+        
         let layer = CALayer()
         layer.frame = UIScreen.mainScreen().bounds
         return layer

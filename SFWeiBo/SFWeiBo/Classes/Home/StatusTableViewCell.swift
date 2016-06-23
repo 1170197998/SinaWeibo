@@ -62,7 +62,6 @@ class StatusTableViewCell: UITableViewCell {
         setupUI()
     }
     
-    //
     func setupUI() {
         
         // 1.添加子控件
