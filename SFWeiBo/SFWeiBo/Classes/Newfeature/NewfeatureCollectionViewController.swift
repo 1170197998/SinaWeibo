@@ -48,7 +48,7 @@ extension NewfeatureCollectionViewController {
         //设置cell数据
         //        cell.backgroundColor = UIColor.redColor()
         cell.imageIndex = indexPath.item
-        
+         
         return cell
     }
     

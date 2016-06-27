@@ -11,12 +11,44 @@ import SVProgressHUD
 
 class ComposeViewController: UIViewController {
     
+    //工具条底部约束
+    var toolBarBottonCons: NSLayoutConstraint?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.whiteColor()
         
+        //监听键盘弹出和消失
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ComposeViewController.keyboardChange(_:)), name: UIKeyboardWillChangeFrameNotification, object: nil)
+        ///导航条
         setupNav()
+        ///输入框
         setupInputView()
+        ///工具条
+        setupToolbar()
+    }
+    
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+    
+    /**
+     键盘frame改变会调用次方法
+     */
+    func keyboardChange(notify: NSNotification) {
+        print(notify)
+        let value = notify.userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue
+        let rect = value.CGRectValue()
+        
+        let height = UIScreen.mainScreen().bounds.height
+        toolBarBottonCons?.constant = -(height - rect.origin.y)
+        
+        //更新界面
+        let duration = notify.userInfo![UIKeyboardAnimationDurationUserInfoKey] as! NSNumber
+        
+        UIView.animateWithDuration(duration.doubleValue) {
+            self.view.layoutIfNeeded()
+        }
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -65,6 +97,48 @@ class ComposeViewController: UIViewController {
         navigationItem.titleView = titleView
     }
     
+    /**
+     设置工具条
+     */
+    private func setupToolbar() {
+        view.addSubview(toolbar)
+        var items = [UIBarButtonItem]()
+        let itemSettings = [["imageName": "compose_toolbar_picture", "action": "selectPicture"],
+                            
+                            ["imageName": "compose_mentionbutton_background"],
+                            
+                            ["imageName": "compose_trendbutton_background"],
+                            
+                            ["imageName": "compose_emoticonbutton_background", "action": "inputEmoticon"],
+                            
+                            ["imageName": "compose_addbutton_background"]]
+        for dict in itemSettings {
+            let item = UIBarButtonItem(imageName: dict["imageName"]!, target: self, action: dict["action"])
+            items.append(item)
+            items.append(UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action:  nil))
+        }
+        items.removeLast()
+        toolbar.items = items
+        
+        // 布局toolbar
+        let width = UIScreen.mainScreen().bounds.width
+        let cons = toolbar.AlignInner(type: AlignType.BottomLeft, referView: view, size: CGSize(width: width, height: 44))
+        toolBarBottonCons = toolbar.Constraint(cons, attribute: NSLayoutAttribute.Bottom)
+    }
+    
+    /**
+     选择相片
+     */
+    func selectPicture() {
+        
+    }
+    /**
+     切换表情键盘
+     */
+    func inputEmoticon() {
+        
+    }
+    
     func close() {
         dismissViewControllerAnimated(true, completion: nil)
     }
@@ -104,6 +178,7 @@ class ComposeViewController: UIViewController {
         label.text = "分享新鲜事..."
         return label
     }()
+    private lazy var toolbar: UIToolbar = UIToolbar()
 }
 
 extension ComposeViewController: UITextViewDelegate {
