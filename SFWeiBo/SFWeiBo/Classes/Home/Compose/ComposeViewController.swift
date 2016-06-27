@@ -11,8 +11,15 @@ import SVProgressHUD
 
 class ComposeViewController: UIViewController {
     
+    private lazy var emoticonVC: EmoticonViewController = EmoticonViewController { [unowned self] (emoticon) -> () in
+        self.textView.insertEmoticon(emoticon)
+    }
+    private lazy var photoSelectorVC: PhotoSelectorViewController = PhotoSelectorViewController()
+
     //工具条底部约束
     var toolBarBottonCons: NSLayoutConstraint?
+    /// 图片选择器高度约束
+    var photoViewHeightCons: NSLayoutConstraint?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,10 +27,17 @@ class ComposeViewController: UIViewController {
         
         //监听键盘弹出和消失
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ComposeViewController.keyboardChange(_:)), name: UIKeyboardWillChangeFrameNotification, object: nil)
+        
+        // 将键盘控制器添加为当前控制器的子控制器
+        addChildViewController(emoticonVC)
+        addChildViewController(photoSelectorVC)
+        
         ///导航条
         setupNav()
         ///输入框
         setupInputView()
+        ///初始化图片选择器
+        setupPhotoView()
         ///工具条
         setupToolbar()
     }
@@ -36,7 +50,6 @@ class ComposeViewController: UIViewController {
      键盘frame改变会调用次方法
      */
     func keyboardChange(notify: NSNotification) {
-        print(notify)
         let value = notify.userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue
         let rect = value.CGRectValue()
         
@@ -46,9 +59,17 @@ class ComposeViewController: UIViewController {
         //更新界面
         let duration = notify.userInfo![UIKeyboardAnimationDurationUserInfoKey] as! NSNumber
         
-        UIView.animateWithDuration(duration.doubleValue) {
+        let curve = notify.userInfo![UIKeyboardAnimationCurveUserInfoKey] as! NSNumber
+        
+        UIView.animateWithDuration(duration.doubleValue) { () -> Void in
+            // 设置动画节奏
+            UIView.setAnimationCurve(UIViewAnimationCurve(rawValue: curve.integerValue)!)
+            
             self.view.layoutIfNeeded()
         }
+        
+        let anim = toolbar.layer.animationForKey("position")
+        print("duration = \(anim?.duration)")
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -104,13 +125,9 @@ class ComposeViewController: UIViewController {
         view.addSubview(toolbar)
         var items = [UIBarButtonItem]()
         let itemSettings = [["imageName": "compose_toolbar_picture", "action": "selectPicture"],
-                            
                             ["imageName": "compose_mentionbutton_background"],
-                            
                             ["imageName": "compose_trendbutton_background"],
-                            
                             ["imageName": "compose_emoticonbutton_background", "action": "inputEmoticon"],
-                            
                             ["imageName": "compose_addbutton_background"]]
         for dict in itemSettings {
             let item = UIBarButtonItem(imageName: dict["imageName"]!, target: self, action: dict["action"])
@@ -130,37 +147,96 @@ class ComposeViewController: UIViewController {
      选择相片
      */
     func selectPicture() {
-        
+        textView.resignFirstResponder()
+        //调整图片选择器的高度
+        photoViewHeightCons?.constant = UIScreen.mainScreen().bounds.height * 0.6
     }
+
+    func setupPhotoView() {
+        //添加图片选择器
+        view.insertSubview(photoSelectorVC.view, belowSubview: toolbar)
+        
+        //布局图片选择器
+        let size = UIScreen.mainScreen().bounds.size
+        let width = size.width
+        let height: CGFloat = 0
+        let cons = photoSelectorVC.view.AlignInner(type: AlignType.BottomLeft, referView: view, size: CGSizeMake(width, height))
+        photoViewHeightCons = photoSelectorVC.view.Constraint(cons, attribute: NSLayoutAttribute.Height)
+    }
+    
     /**
      切换表情键盘
      */
     func inputEmoticon() {
-        
+        // 如果是系统自带的键盘, 那么inputView = nil
+        // 如果不是系统自带的键盘, 那么inputView != nil
+        // 关闭键盘
+        textView.resignFirstResponder()
+        // 设置inputView
+        textView.inputView = (textView.inputView == nil) ? emoticonVC.view : nil
+        // 从新召唤出键盘
+        textView.becomeFirstResponder()
     }
     
     func close() {
         dismissViewControllerAnimated(true, completion: nil)
     }
     
+    /**
+     发送微博
+     */
     func sendStatus() {
         
-        let path = "2/statuses/update.json"
-        let params = ["access_token":UserAccount.loadAccount()?.access_token! , "status": textView.text]
-        
-        NetworkTools.shareNetworkTools().POST(path, parameters: params, progress: nil, success: { (_, JSON) in
+        if let image = photoSelectorVC.pictureImages.first {
             
-            //提示用户发送成功
-            SVProgressHUD.showSuccessWithStatus("发送成功")
-            SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.Black)
-            //关闭发送界面
-            self.close()
+            let path = "2/statuses/update.json"
+            let params = ["access_token":UserAccount.loadAccount()!.access_token! , "status": textView.emoticonAttributedText()]
             
-        }) { (_, error) in
-            print(error)
-            //提示用户发送失败
-            SVProgressHUD.showErrorWithStatus("发送失败")
-            SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.Black)
+            NetworkTools.shareNetworkTools().POST(path, parameters: params, constructingBodyWithBlock: { (formData) -> Void in
+                // 将数据转换为二进制
+                let data = UIImagePNGRepresentation(image)
+                
+                // 上传数据
+                /*
+                 第一个参数: 需要上传的二进制数据
+                 第二个参数: 服务端对应哪个的字段名称
+                 第三个参数: 文件的名称(在大部分服务器上可以随便写)
+                 第四个参数: 数据类型, 通用类型application/octet-stream
+                 */
+                formData.appendPartWithFileData(data!
+                    , name:"pic", fileName:"abc.png", mimeType:"application/octet-stream");
+                
+                }, progress: nil, success: { (_, JSON) in
+                    //提示用户发送成功
+                    SVProgressHUD.showSuccessWithStatus("发送成功")
+                    SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.Black)
+                    //关闭发送界面
+                    self.close()
+                    
+            }) { (_, error) in
+                print(error)
+                //提示用户发送失败
+                SVProgressHUD.showErrorWithStatus("发送失败")
+                SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.Black)
+            }
+        } else {
+            
+            let path = "2/statuses/update.json"
+            let params = ["access_token":UserAccount.loadAccount()!.access_token! , "status": textView.emoticonAttributedText()]
+
+            NetworkTools.shareNetworkTools().POST(path, parameters: params, progress: nil, success: { (_, JSON) in
+                //提示用户发送成功
+                SVProgressHUD.showSuccessWithStatus("发送成功")
+                SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.Black)
+                //关闭发送界面
+                self.close()
+                
+            }) { (_, error) in
+                print(error)
+                //提示用户发送失败
+                SVProgressHUD.showErrorWithStatus("发送失败")
+                SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.Black)
+            }
         }
     }
     
@@ -191,4 +267,3 @@ extension ComposeViewController: UITextViewDelegate {
         navigationItem.rightBarButtonItem?.enabled = textView.hasText()
     }
 }
-
