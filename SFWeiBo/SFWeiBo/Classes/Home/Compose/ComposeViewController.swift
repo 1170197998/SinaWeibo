@@ -11,12 +11,14 @@ import SVProgressHUD
 
 class ComposeViewController: UIViewController {
     
+    /// 表情键盘布局
     private lazy var emoticonVC: EmoticonViewController = EmoticonViewController { [unowned self] (emoticon) -> () in
         self.textView.insertEmoticon(emoticon)
     }
+    /// 图片选择器
     private lazy var photoSelectorVC: PhotoSelectorViewController = PhotoSelectorViewController()
 
-    //工具条底部约束
+    ///工具条底部约束
     var toolBarBottonCons: NSLayoutConstraint?
     /// 图片选择器高度约束
     var photoViewHeightCons: NSLayoutConstraint?
@@ -67,19 +69,20 @@ class ComposeViewController: UIViewController {
             
             self.view.layoutIfNeeded()
         }
-        
         let anim = toolbar.layer.animationForKey("position")
         print("duration = \(anim?.duration)")
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        //设置键盘为第一响应
-        textView.becomeFirstResponder()
+        if photoViewHeightCons == 0 {
+            //设置键盘为第一响应
+            textView.becomeFirstResponder()
+        }
     }
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
-        //取消键盘第一响应
+        //影藏键盘
         textView.resignFirstResponder()
     }
     
@@ -87,6 +90,8 @@ class ComposeViewController: UIViewController {
     private func setupInputView() {
         view.addSubview(textView)
         textView.addSubview(placeholderLabel)
+        textView.allowsEditingTextAttributes = true
+        textView.keyboardDismissMode = UIScrollViewKeyboardDismissMode.OnDrag
         
         textView.Fill(view)
         placeholderLabel.AlignInner(type: AlignType.TopLeft, referView: textView, size: nil, offset: CGPoint(x: 5, y: 8))
@@ -187,56 +192,17 @@ class ComposeViewController: UIViewController {
      */
     func sendStatus() {
         
-        if let image = photoSelectorVC.pictureImages.first {
-            
-            let path = "2/statuses/update.json"
-            let params = ["access_token":UserAccount.loadAccount()!.access_token! , "status": textView.emoticonAttributedText()]
-            
-            NetworkTools.shareNetworkTools().POST(path, parameters: params, constructingBodyWithBlock: { (formData) -> Void in
-                // 将数据转换为二进制
-                let data = UIImagePNGRepresentation(image)
-                
-                // 上传数据
-                /*
-                 第一个参数: 需要上传的二进制数据
-                 第二个参数: 服务端对应哪个的字段名称
-                 第三个参数: 文件的名称(在大部分服务器上可以随便写)
-                 第四个参数: 数据类型, 通用类型application/octet-stream
-                 */
-                formData.appendPartWithFileData(data!
-                    , name:"pic", fileName:"abc.png", mimeType:"application/octet-stream");
-                
-                }, progress: nil, success: { (_, JSON) in
-                    //提示用户发送成功
-                    SVProgressHUD.showSuccessWithStatus("发送成功")
-                    SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.Black)
-                    //关闭发送界面
-                    self.close()
-                    
-            }) { (_, error) in
-                print(error)
-                //提示用户发送失败
-                SVProgressHUD.showErrorWithStatus("发送失败")
-                SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.Black)
-            }
-        } else {
-            
-            let path = "2/statuses/update.json"
-            let params = ["access_token":UserAccount.loadAccount()!.access_token! , "status": textView.emoticonAttributedText()]
-
-            NetworkTools.shareNetworkTools().POST(path, parameters: params, progress: nil, success: { (_, JSON) in
-                //提示用户发送成功
-                SVProgressHUD.showSuccessWithStatus("发送成功")
-                SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.Black)
-                //关闭发送界面
-                self.close()
-                
-            }) { (_, error) in
-                print(error)
-                //提示用户发送失败
-                SVProgressHUD.showErrorWithStatus("发送失败")
-                SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.Black)
-            }
+        let text = textView.emoticonAttributedText()
+        let image = photoSelectorVC.pictureImages.first
+        
+        NetworkTools.shareNetworkTools().sendStatus(text, image: image, successCallBack: { (status) in
+            SVProgressHUD.showSuccessWithStatus("发送成功")
+            SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.Black)
+            self.close()
+        }) { (error) in
+            print(error)
+            SVProgressHUD.showSuccessWithStatus("发送失败")
+            SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.Black)
         }
     }
     

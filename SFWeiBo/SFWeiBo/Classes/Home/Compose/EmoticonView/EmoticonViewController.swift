@@ -123,7 +123,7 @@ extension EmoticonViewController: UICollectionViewDataSource, UICollectionViewDe
         
         // 1.处理最近表情, 将当前使用的表情添加到最近表情的数组中
         let emoticon = packages[indexPath.section].emoticons![indexPath.item]
-        emoticon.times++
+        emoticon.times += 1
         packages[0].appendEmoticons(emoticon)
 //        collectionView.reloadSections(NSIndexSet(index: 0))
         
@@ -183,7 +183,6 @@ class EmoticonCell: UICollectionViewCell {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
 }
 
 /// 自定义布局
@@ -205,6 +204,5 @@ class EmoticonLayout: UICollectionViewFlowLayout {
         // 注意:最好不要乘以0.5, 因为CGFloat不准确, 所以如果乘以0.5在iPhone4/4身上会有问题
         let y = (collectionView!.bounds.height - 3 * width) * 0.45
         collectionView?.contentInset = UIEdgeInsets(top: y, left: 0, bottom: y, right: 0)
-        
     }
 }
