@@ -17,7 +17,7 @@ class ComposeViewController: UIViewController {
     }
     /// 图片选择器
     private lazy var photoSelectorVC: PhotoSelectorViewController = PhotoSelectorViewController()
-
+    
     ///工具条底部约束
     var toolBarBottonCons: NSLayoutConstraint?
     /// 图片选择器高度约束
@@ -156,7 +156,7 @@ class ComposeViewController: UIViewController {
         //调整图片选择器的高度
         photoViewHeightCons?.constant = UIScreen.mainScreen().bounds.height * 0.6
     }
-
+    
     func setupPhotoView() {
         //添加图片选择器
         view.insertSubview(photoSelectorVC.view, belowSubview: toolbar)
@@ -209,27 +209,35 @@ class ComposeViewController: UIViewController {
     //MARK: - 懒加载
     private lazy var textView: UITextView = {
         let tv = UITextView()
+        tv.font = UIFont.systemFontOfSize(20)
         tv.delegate = self
         return tv
     }()
     
     private lazy var placeholderLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFontOfSize(13)
+        label.font = UIFont.systemFontOfSize(20)
         label.textColor = UIColor.darkGrayColor()
         label.text = "分享新鲜事..."
         return label
     }()
     private lazy var toolbar: UIToolbar = UIToolbar()
+    private lazy var tipLabel = UILabel()
 }
 
+private let maxTipLength = 10
 extension ComposeViewController: UITextViewDelegate {
     
     //监听输入内容
     func textViewDidChange(textView: UITextView) {
         
-        //textView.hasText()：是否有内容
+        //输入表情时不会触发该方法
         placeholderLabel.hidden = textView.hasText()
         navigationItem.rightBarButtonItem?.enabled = textView.hasText()
+        
+        let count = textView.emoticonAttributedText().characters.count
+        let res = maxTipLength - count
+        tipLabel.textColor = (res > 0) ? UIColor.darkGrayColor() : UIColor.redColor()
+        tipLabel.text = res == maxTipLength ? "" : "\(res)"
     }
 }

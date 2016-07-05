@@ -27,7 +27,7 @@ extension UITextView
         // 2.判断当前点击的是否是表情图片
         if emoticon.png != nil{
             
-//            print("font = \(font)")
+            //            print("font = \(font)")
             // 1.创建表情字符串
             let imageText = EmoticonTextAttachment.imageText(emoticon, font: font ?? UIFont.systemFontOfSize(17))
             
@@ -54,8 +54,8 @@ extension UITextView
     }
     
     /**
-    获取需要发送给服务器的字符串
-    */
+     获取需要发送给服务器的字符串
+     */
     func emoticonAttributedText() -> String
     {
         var strM = String()

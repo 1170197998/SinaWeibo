@@ -7,23 +7,7 @@
 //
 
 import UIKit
-/*
-结构:
-1. 加载emoticons.plist拿到每组表情的路径
 
-emoticons.plist(字典)  存储了所有组表情的数据
-|----packages(字典数组)
-        |-------id(存储了对应组表情对应的文件夹)
-
-2. 根据拿到的路径加载对应组表情的info.plist
-info.plist(字典)
-|----id(当前组表情文件夹的名称)
-|----group_name_cn(组的名称)
-|----emoticons(字典数组, 里面存储了所有表情)
-        |----chs(表情对应的文字)
-        |----png(表情对应的图片)
-        |----code(emoji表情对应的十六进制字符串)
-*/
 class EmoticonPackage: NSObject {
     /// 当前组表情文件夹的名称
     var id: String?
@@ -32,8 +16,61 @@ class EmoticonPackage: NSObject {
     /// 当前组所有的表情对象
     var emoticons: [Emoticon]?
     
-    
     static let packageList:[EmoticonPackage] = EmoticonPackage.loadPackages()
+    
+    class func emoticonString(str: String) -> NSAttributedString? {
+        // 生成完整的属性字符串
+        let mString = NSMutableAttributedString(string: str)
+        do {
+            // 创建规则
+            let pattern = "\\[.*?\\]"
+            
+            // 创建正则表达式对象
+            let regex = try NSRegularExpression(pattern: pattern, options: NSRegularExpressionOptions.CaseInsensitive)
+            // 开始匹配
+            let res = regex.matchesInString(str, options: NSMatchingOptions(rawValue: 0), range: NSMakeRange(0, str.characters.count))
+            // 取出结果
+            var count = res.count
+            while count > 0 {
+                // 从后面开始取
+                let checkingRes = res[--count]
+                // 拿到匹配到的表情字符串
+                let tempStr = (str as NSString).substringWithRange(checkingRes.range)
+                // 根据表情字符串查找对应的表情模型
+                if let emoticon = emoticonWithStr(tempStr) {
+                    print(emoticon.chs)
+                    // 根据表情模型生成属性字符串
+                    let attrStr = EmoticonTextAttachment.imageText(emoticon, font: UIFont.systemFontOfSize(18))
+                    // 添加属性字符串
+                    mString.replaceCharactersInRange(checkingRes.range, withAttributedString: attrStr)
+                }
+            }
+            // 拿到替换之后的属性字符串
+            return mString
+        } catch {
+            print(error)
+            return nil
+        }
+    }
+    
+    /**
+     根据表情文字找到对应的表情模型
+     :param: str 表情文字
+     :returns: 表情模型
+     */
+    class func emoticonWithStr(str: String) -> Emoticon? {
+        var emoticon: Emoticon?
+        for package in EmoticonPackage.packageList {
+            emoticon = package.emoticons?.filter({ (e) -> Bool in
+                return e.chs == str
+            }).last
+            
+            if emoticon != nil{
+                break
+            }
+        }
+        return emoticon
+    }
     
     /// 获取所有组的表情数组
     // 浪小花 -> 一组  -> 所有的表情模型(emoticons)
@@ -42,23 +79,22 @@ class EmoticonPackage: NSObject {
     private class func loadPackages() -> [EmoticonPackage] {
         print("-------------")
         var packages = [EmoticonPackage]()
-        // 0.创建最近组
+        // 创建最近组
         let pk = EmoticonPackage(id: "")
         pk.group_name_cn = "最近"
         pk.emoticons = [Emoticon]()
         pk.appendEmtyEmoticons()
         packages.append(pk)
         
-        
         let path = NSBundle.mainBundle().pathForResource("emoticons.plist", ofType: nil, inDirectory: "Emoticons.bundle")!
-        // 1.加载emoticons.plist
+        //加载emoticons.plist
         let dict = NSDictionary(contentsOfFile: path)!
-        // 2.或emoticons中获取packages
+        //或emoticons中获取packages
         let dictArray = dict["packages"] as! [[String:AnyObject]]
-        // 3.遍历packages数组
+        //遍历packages数组
         for d in dictArray
         {
-            // 4.取出ID, 创建对应的组
+            // 取出ID, 创建对应的组
             let package = EmoticonPackage(id: d["id"]! as! String)
             packages.append(package)
             package.loadEmoticons()
@@ -87,9 +123,9 @@ class EmoticonPackage: NSObject {
     }
     
     /**
-    追加空白按钮
-    如果一页不足21个,那么就添加一些空白按钮补齐
-    */
+     追加空白按钮
+     如果一页不足21个,那么就添加一些空白按钮补齐
+     */
     func appendEmtyEmoticons()
     {
         print(emoticons?.count)
@@ -106,19 +142,16 @@ class EmoticonPackage: NSObject {
     }
     
     /**
-    用于给最近添加表情
-    */
-    func appendEmoticons(emoticon: Emoticon)
-    {
+     用于给最近添加表情
+     */
+    func appendEmoticons(emoticon: Emoticon) {
         // 1.判断是否是删除按钮
-        if emoticon.isRemoveButton
-        {
+        if emoticon.isRemoveButton {
             return
         }
         // 2.判断当前点击的表情是否已经添加到最近数组中
         let contains = emoticons!.contains(emoticon)
-        if !contains
-        {
+        if !contains {
             // 删除删除按钮
             emoticons?.removeLast()
             emoticons?.append(emoticon)
@@ -130,8 +163,7 @@ class EmoticonPackage: NSObject {
         })
         
         // 4.删除多余的表情
-        if !contains
-        {
+        if !contains {
             result?.removeLast()
             // 添加一个删除按钮
             result?.append(Emoticon(isRemoveButton: true))
@@ -140,16 +172,13 @@ class EmoticonPackage: NSObject {
         emoticons = result
         
         print(emoticons?.count)
-        
     }
     
     /**
-    获取指定文件的全路径
-    
-    :param: fileName 文件的名称
-    
-    :returns: 全路径
-    */
+     获取指定文件的全路径
+     :param: fileName 文件的名称
+     :returns: 全路径
+     */
     func infoPath(fileName: String) -> String {
         return (EmoticonPackage.emoticonPath().stringByAppendingPathComponent(id!) as NSString).stringByAppendingPathComponent(fileName)
     }
@@ -165,16 +194,16 @@ class EmoticonPackage: NSObject {
 }
 
 class Emoticon: NSObject {
- /// 表情对应的文字
+    /// 表情对应的文字
     var chs: String?
- /// 表情对应的图片
+    /// 表情对应的图片
     var png: String?
         {
         didSet{
             imagePath = (EmoticonPackage.emoticonPath().stringByAppendingPathComponent(id!) as NSString).stringByAppendingPathComponent(png!)
         }
     }
- /// emoji表情对应的十六进制字符串
+    /// emoji表情对应的十六进制字符串
     var code: String?{
         didSet{
             // 1.从字符串中取出十六进制的数
@@ -192,7 +221,7 @@ class Emoticon: NSObject {
     
     var emojiStr: String?
     
- /// 当前表情对应的文件夹
+    /// 当前表情对应的文件夹
     var id: String?
     
     /// 表情图片的全路径
@@ -204,14 +233,12 @@ class Emoticon: NSObject {
     /// 记录当前表情被使用的次数
     var times: Int = 0
     
-    init(isRemoveButton: Bool)
-    {
+    init(isRemoveButton: Bool) {
         super.init()
         self.isRemoveButton = isRemoveButton
     }
     
-    init(dict: [String: String], id: String)
-    {
+    init(dict: [String: String], id: String) {
         super.init()
         self.id = id
         setValuesForKeysWithDictionary(dict)
