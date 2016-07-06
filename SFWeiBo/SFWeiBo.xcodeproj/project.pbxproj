@@ -62,6 +62,7 @@
 		9A220D3F1D2117B50062D986 /* PhotoSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A220D381D2117B50062D986 /* PhotoSelectorViewController.swift */; };
 		9A220D401D2117B50062D986 /* UIImage+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A220D391D2117B50062D986 /* UIImage+Category.swift */; };
 		9A66F07B1CE4540700C83772 /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A66F07A1CE4540700C83772 /* ComposeViewController.swift */; };
+		9AF76D691D2D075E00D46C29 /* HomeDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF76D681D2D075E00D46C29 /* HomeDetailTableViewController.swift */; };
 		EC7B308ED64B28CA7970A14D /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 243576FA5AC90BC66B7DEEC0 /* Pods.framework */; };
 /* End PBXBuildFile section */
 
@@ -148,6 +149,7 @@
 		9A220D381D2117B50062D986 /* PhotoSelectorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoSelectorViewController.swift; sourceTree = "<group>"; };
 		9A220D391D2117B50062D986 /* UIImage+Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Category.swift"; sourceTree = "<group>"; };
 		9A66F07A1CE4540700C83772 /* ComposeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
+		9AF76D681D2D075E00D46C29 /* HomeDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeDetailTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -293,6 +295,7 @@
 				04D44C631CA058C800E6C906 /* Common */,
 				04D44C641CA058C800E6C906 /* Discover */,
 				04D44C651CA058C800E6C906 /* Home */,
+				9AF76D671D2D06ED00D46C29 /* HomeDetail */,
 				04D44C661CA058C800E6C906 /* Main */,
 				04D44C671CA058C800E6C906 /* Message */,
 				04D44C681CA058C800E6C906 /* Profile */,
@@ -429,6 +432,14 @@
 				9A66F07A1CE4540700C83772 /* ComposeViewController.swift */,
 			);
 			path = Compose;
+			sourceTree = "<group>";
+		};
+		9AF76D671D2D06ED00D46C29 /* HomeDetail */ = {
+			isa = PBXGroup;
+			children = (
+				9AF76D681D2D075E00D46C29 /* HomeDetailTableViewController.swift */,
+			);
+			path = HomeDetail;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -626,6 +637,7 @@
 				04FDF3201CD127EE00F189A0 /* StatusNormalTableViewCell.swift in Sources */,
 				9A220D3C1D2117B50062D986 /* EmoticonTextAttachment.swift in Sources */,
 				0479FF8F1CA82BF00031B845 /* PopoverViewController.swift in Sources */,
+				9AF76D691D2D075E00D46C29 /* HomeDetailTableViewController.swift in Sources */,
 				046206731CB562F2002B4596 /* UserAccount.swift in Sources */,
 				04C718D81CCFB36900D9E342 /* StatusTableViewTopView.swift in Sources */,
 				040014621CBBE29F0073B18E /* WelcomeViewController.swift in Sources */,

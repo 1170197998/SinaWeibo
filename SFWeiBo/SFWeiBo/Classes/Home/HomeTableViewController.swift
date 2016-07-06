@@ -274,4 +274,9 @@ extension HomeTableViewController {
         rowCache[stat.id] = rowHeight
         return rowHeight
     }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let vc = HomeDetailTableViewController()
+        navigationController?.pushViewController(vc, animated: true)
+    }
 }
