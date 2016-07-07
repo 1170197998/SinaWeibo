@@ -61,6 +61,7 @@
 		9A220D3E1D2117B50062D986 /* UITextView+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A220D361D2117B50062D986 /* UITextView+Category.swift */; };
 		9A220D3F1D2117B50062D986 /* PhotoSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A220D381D2117B50062D986 /* PhotoSelectorViewController.swift */; };
 		9A220D401D2117B50062D986 /* UIImage+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A220D391D2117B50062D986 /* UIImage+Category.swift */; };
+		9A2A095A1D2E68CD002967E1 /* HomeDetailThreeButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2A09591D2E68CD002967E1 /* HomeDetailThreeButtonTableViewCell.swift */; };
 		9A66F07B1CE4540700C83772 /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A66F07A1CE4540700C83772 /* ComposeViewController.swift */; };
 		9AF76D691D2D075E00D46C29 /* HomeDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF76D681D2D075E00D46C29 /* HomeDetailTableViewController.swift */; };
 		EC7B308ED64B28CA7970A14D /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 243576FA5AC90BC66B7DEEC0 /* Pods.framework */; };
@@ -148,6 +149,7 @@
 		9A220D361D2117B50062D986 /* UITextView+Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextView+Category.swift"; sourceTree = "<group>"; };
 		9A220D381D2117B50062D986 /* PhotoSelectorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoSelectorViewController.swift; sourceTree = "<group>"; };
 		9A220D391D2117B50062D986 /* UIImage+Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Category.swift"; sourceTree = "<group>"; };
+		9A2A09591D2E68CD002967E1 /* HomeDetailThreeButtonTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeDetailThreeButtonTableViewCell.swift; sourceTree = "<group>"; };
 		9A66F07A1CE4540700C83772 /* ComposeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
 		9AF76D681D2D075E00D46C29 /* HomeDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeDetailTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -438,6 +440,7 @@
 			isa = PBXGroup;
 			children = (
 				9AF76D681D2D075E00D46C29 /* HomeDetailTableViewController.swift */,
+				9A2A09591D2E68CD002967E1 /* HomeDetailThreeButtonTableViewCell.swift */,
 			);
 			path = HomeDetail;
 			sourceTree = "<group>";
@@ -656,6 +659,7 @@
 				0418E2D41CC9171B0048624B /* UILabel+Category.swift in Sources */,
 				9A220D3D1D2117B50062D986 /* EmoticonViewController.swift in Sources */,
 				9A0176921CD981E50002DC1A /* PhotoBroeserCell.swift in Sources */,
+				9A2A095A1D2E68CD002967E1 /* HomeDetailThreeButtonTableViewCell.swift in Sources */,
 				9A0176901CD97FDD0002DC1A /* UIColor+Category.swift in Sources */,
 				04EC221B1CC671C100D0400E /* Status.swift in Sources */,
 				04D44C6F1CA0599000E6C906 /* MessageTableViewController.swift in Sources */,
@@ -805,6 +809,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = cn.xshaofeng.SFWeiBo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "SFWeiBo/Weibo-Bridge.h";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -821,6 +826,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = cn.xshaofeng.SFWeiBo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "SFWeiBo/Weibo-Bridge.h";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
