@@ -44,6 +44,7 @@ class HomeTableViewController: BaseTableViewController  {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(HomeTableViewController.change), name: PopoverAnimatorWillShow, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(HomeTableViewController.change), name: PopoverAnimatorWillDismiss, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(HomeTableViewController.showPhotoBrowser(_:)), name: SFStatusPictureViewSelected, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(HomeTableViewController.gotoDetailPage), name: "gotoDetailPage", object: nil)
         
         //注册2个cell(默认的cell 和 转发的cell)
         tableView.registerClass(StatusNormalTableViewCell.self, forCellReuseIdentifier: StatusTableViewCellIdentifier.NormalCell.rawValue)
@@ -72,6 +73,15 @@ class HomeTableViewController: BaseTableViewController  {
         //创建图片浏览器
         let vc = PhotoBrowserViewController(index: indexPath.item, urls: urls as! [NSURL])
         presentViewController(vc, animated: true, completion: nil)
+    }
+    
+    func gotoDetailPage(notify: NSNotification) {
+        
+        hidesBottomBarWhenPushed = true
+        let vc = HomeDetailViewController()
+        vc.currentStatus = notify.userInfo!["dict"] as? Status
+        navigationController?.pushViewController(vc, animated: true)
+        hidesBottomBarWhenPushed = false
     }
     
     deinit {
@@ -276,7 +286,10 @@ extension HomeTableViewController {
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let vc = HomeDetailTableViewController()
+        hidesBottomBarWhenPushed = true
+        let vc = HomeDetailViewController()
+        vc.currentStatus = status![indexPath.row]
         navigationController?.pushViewController(vc, animated: true)
+        hidesBottomBarWhenPushed = false
     }
 }

@@ -53,6 +53,11 @@ class StatusForwardTableViewCell: StatusTableViewCell {
     private lazy var forwardButton: UIButton = {
         let button = UIButton()
         button.backgroundColor = UIColor(white: 0.9, alpha: 1.0)
+        button.addTarget(self, action: #selector(clickOrignStatus), forControlEvents: UIControlEvents.TouchUpInside)
         return button
     }()
+    
+    func clickOrignStatus() {
+        NSNotificationCenter.defaultCenter().postNotificationName("gotoDetailPage", object: self, userInfo: ["dict": status!.retweeted_status!])
+    }
 }

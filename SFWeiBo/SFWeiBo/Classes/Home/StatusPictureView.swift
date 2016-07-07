@@ -68,10 +68,10 @@ class StatusPictureView: UICollectionView {
         
         // 5.如果是其它(多张), 计算九宫格的大小
         /*
-        2/3
-        5/6
-        7/8/9
-        */
+         2/3
+         5/6
+         7/8/9
+         */
         // 5.1计算列数
         let colNumber = 3
         // 5.2计算行数
@@ -109,7 +109,7 @@ class StatusPictureView: UICollectionView {
             // 1.添加子控件
             contentView.addSubview(iconImageView)
             iconImageView.addSubview(gifImageView)
-
+            
             // 2.布局子控件
             iconImageView.Fill(contentView)
             gifImageView.AlignInner(type: AlignType.BottomRight, referView: iconImageView, size: nil)
@@ -123,7 +123,7 @@ class StatusPictureView: UICollectionView {
             imageView.hidden = true
             return imageView
         }()
-
+        
         required init?(coder aDecoder: NSCoder) {
             fatalError("init(coder:) has not been implemented")
         }

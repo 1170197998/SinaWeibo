@@ -9,7 +9,7 @@
 import UIKit
 
 class StatusTableViewTopView: UIView {
-
+    
     var status: Status?
         {
         didSet{
@@ -28,7 +28,7 @@ class StatusTableViewTopView: UIView {
             sourceLabel.text = status?.source
         }
     }
-
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -72,7 +72,7 @@ class StatusTableViewTopView: UIView {
     private lazy var timeLabel: UILabel = UILabel.creatLabel(UIColor.darkGrayColor(), fontSize: 14)
     /// 来源
     private lazy var sourceLabel: UILabel = UILabel.creatLabel(UIColor.darkGrayColor(), fontSize: 14)
-
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

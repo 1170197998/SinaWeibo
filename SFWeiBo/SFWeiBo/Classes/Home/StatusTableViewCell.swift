@@ -34,7 +34,7 @@ class StatusTableViewCell: UITableViewCell {
     var pictureHeightCons: NSLayoutConstraint?
     
     var pictureTopCons: NSLayoutConstraint?
-
+    
     var status: Status?
         {
         didSet{
@@ -86,7 +86,7 @@ class StatusTableViewCell: UITableViewCell {
         //返回底部视图最大的Y值
         return CGRectGetMaxY(footerView.frame)
     }
-
+    
     // MARK: - 懒加载
     //顶部视图
     private lazy var topView: StatusTableViewTopView = StatusTableViewTopView()
