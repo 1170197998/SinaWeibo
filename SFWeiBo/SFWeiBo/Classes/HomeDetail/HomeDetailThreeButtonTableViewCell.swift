@@ -24,7 +24,9 @@ import UIKit
 class HomeDetailThreeButtonTableViewCell: UITableViewCell {
 
     var mArrayTitle: [String] = []
-    var mArrayButton: [String] = []
+    var mArrayButton: [UIButton] = []
+    var markView: UIView = UIView()
+    let markViewIndex :Int = 0
 
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -34,11 +36,11 @@ class HomeDetailThreeButtonTableViewCell: UITableViewCell {
     }
     
     private func setupUI() {
-        mArrayTitle = ["评论","赞","转发"]
+        mArrayTitle = ["转发","赞","评论"]
         
         let width = UIScreen.mainScreen().bounds.size.width
         for i in 0 ..< mArrayTitle.count {
-            let button = UIButton.init(frame: CGRectMake(10 + CGFloat(i) * (width - 20) / 3, 0, (width - 20) / 3, 40))
+            let button = UIButton.init(frame: CGRectMake(0 + CGFloat(i) * (width - 0) / 3, 0, (width - 0) / 3, 40))
             button.setTitle(mArrayTitle[i], forState: UIControlState.Normal)
             button.titleLabel?.textAlignment = NSTextAlignment.Left
             button.backgroundColor = UIColor.whiteColor()
@@ -48,16 +50,35 @@ class HomeDetailThreeButtonTableViewCell: UITableViewCell {
             button.tag = i
             button.addTarget(self, action: #selector(clickButtonOnCell(_:)), forControlEvents: UIControlEvents.TouchUpInside)
             contentView.addSubview(button)
-            
-            
+            mArrayButton.append(button)
         }
+        
+        mArrayButton[0].selected = true
+        markView = UIView.init(frame: CGRectMake(0 + ((UIScreen.mainScreen().bounds.size.width - 0) / 3) * CGFloat(markViewIndex), 38, (UIScreen.mainScreen().bounds.size.width - 0) / 3, 2))
+        markView.backgroundColor = UIColor.darkGrayColor()
+        addSubview(markView)
     }
     
     func clickButtonOnCell(button: UIButton) {
         
+        for i in 0 ..< 3 {
+            if button.tag == i {
+                
+                UIView.animateWithDuration(0.25, animations: {
+                    
+                    var rect = self.markView.frame
+                    rect.origin.x = 0 + ((UIScreen.mainScreen().bounds.size.width - 0) / 3) * CGFloat(i)
+                    self.markView.frame = rect
+                })
+            }
+        }
+        for button in mArrayButton {
+            if button.selected == true {
+                button.selected = false
+            }
+        }
+        button.selected = true
     }
-    
-    
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

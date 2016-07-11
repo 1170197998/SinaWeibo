@@ -15,9 +15,14 @@ class HomeDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "微博正文"
+        navigationItem.rightBarButtonItem = UIBarButtonItem.init(imageName: "ic_gengduo", target: self, action: "clickRightButton")
         
         setTableView()
         setFooterButton()
+    }
+    
+    func clickRightButton() {
+        
     }
     
     private func setTableView() {
@@ -36,7 +41,7 @@ class HomeDetailViewController: UIViewController {
     //MARK: - 懒加载
     private lazy var footerButton: StatusTableViewBottomView = StatusTableViewBottomView()
     private lazy var tableView: UITableView = {
-        let tableView = UITableView.init(frame: CGRectZero, style: UITableViewStyle.Grouped)
+        let tableView = UITableView.init(frame: CGRectZero, style: UITableViewStyle.Plain)
         tableView.dataSource = self
         tableView.delegate = self
         return tableView
@@ -55,15 +60,20 @@ extension HomeDetailViewController: UITableViewDelegate,UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        
+        if section == 0 {
+            return 1
+        } else {
+            return 20
+        }
     }
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         
         if section == 1 {
-            return 44
+            return 40
         } else {
-            return 0
+            return 0.000000000001
         }
     }
     
@@ -74,7 +84,7 @@ extension HomeDetailViewController: UITableViewDelegate,UITableViewDataSource {
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
         if section == 1 {
-            let threeButton = StatusTableViewBottomView()
+            let threeButton = HomeDetailThreeButtonTableViewCell.init(style: UITableViewCellStyle.Default, reuseIdentifier: "1")
             return threeButton
         } else {
             return nil
@@ -82,7 +92,7 @@ extension HomeDetailViewController: UITableViewDelegate,UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        if indexPath.row == 0 {
+        if indexPath.row == 0 && indexPath.section == 0 {
             
             //拿到cell(dequeue不要选用有IndexPath方法的)
             var cell = tableView.dequeueReusableCellWithIdentifier(StatusTableViewCellIdentifier.cellID(currentStatus!)) as? StatusTableViewCell
@@ -93,7 +103,7 @@ extension HomeDetailViewController: UITableViewDelegate,UITableViewDataSource {
             return cell!.rowHeight(currentStatus!) - 40
             
         } else {
-            return 60
+            return 40
         }
     }
     
