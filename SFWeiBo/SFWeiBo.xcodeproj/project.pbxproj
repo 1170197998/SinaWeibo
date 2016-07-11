@@ -62,6 +62,14 @@
 		9A220D3F1D2117B50062D986 /* PhotoSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A220D381D2117B50062D986 /* PhotoSelectorViewController.swift */; };
 		9A220D401D2117B50062D986 /* UIImage+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A220D391D2117B50062D986 /* UIImage+Category.swift */; };
 		9A2A095A1D2E68CD002967E1 /* HomeDetailThreeButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2A09591D2E68CD002967E1 /* HomeDetailThreeButtonTableViewCell.swift */; };
+		9A4DE0951D3389D700AD659F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A4DE0941D3389D700AD659F /* SystemConfiguration.framework */; };
+		9A4DE0971D338A3E00AD659F /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A4DE0961D338A3E00AD659F /* Security.framework */; };
+		9A4DE0991D338A4C00AD659F /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A4DE0981D338A4C00AD659F /* libiconv.tbd */; };
+		9A4DE09B1D338A5900AD659F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A4DE09A1D338A5900AD659F /* CoreGraphics.framework */; };
+		9A4DE09D1D338A6700AD659F /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A4DE09C1D338A6700AD659F /* libsqlite3.tbd */; };
+		9A4DE09F1D338A6F00AD659F /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A4DE09E1D338A6F00AD659F /* CoreTelephony.framework */; };
+		9A4DE0A11D338A7900AD659F /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A4DE0A01D338A7900AD659F /* libstdc++.tbd */; };
+		9A4DE0A31D338A8100AD659F /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A4DE0A21D338A8100AD659F /* libz.tbd */; };
 		9A66F07B1CE4540700C83772 /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A66F07A1CE4540700C83772 /* ComposeViewController.swift */; };
 		9AF76D691D2D075E00D46C29 /* HomeDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF76D681D2D075E00D46C29 /* HomeDetailTableViewController.swift */; };
 		EC7B308ED64B28CA7970A14D /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 243576FA5AC90BC66B7DEEC0 /* Pods.framework */; };
@@ -150,6 +158,14 @@
 		9A220D381D2117B50062D986 /* PhotoSelectorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoSelectorViewController.swift; sourceTree = "<group>"; };
 		9A220D391D2117B50062D986 /* UIImage+Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Category.swift"; sourceTree = "<group>"; };
 		9A2A09591D2E68CD002967E1 /* HomeDetailThreeButtonTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeDetailThreeButtonTableViewCell.swift; sourceTree = "<group>"; };
+		9A4DE0941D3389D700AD659F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		9A4DE0961D338A3E00AD659F /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		9A4DE0981D338A4C00AD659F /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
+		9A4DE09A1D338A5900AD659F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		9A4DE09C1D338A6700AD659F /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		9A4DE09E1D338A6F00AD659F /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		9A4DE0A01D338A7900AD659F /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
+		9A4DE0A21D338A8100AD659F /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		9A66F07A1CE4540700C83772 /* ComposeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
 		9AF76D681D2D075E00D46C29 /* HomeDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeDetailTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -159,6 +175,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A4DE0A31D338A8100AD659F /* libz.tbd in Frameworks */,
+				9A4DE0A11D338A7900AD659F /* libstdc++.tbd in Frameworks */,
+				9A4DE09F1D338A6F00AD659F /* CoreTelephony.framework in Frameworks */,
+				9A4DE09D1D338A6700AD659F /* libsqlite3.tbd in Frameworks */,
+				9A4DE09B1D338A5900AD659F /* CoreGraphics.framework in Frameworks */,
+				9A4DE0991D338A4C00AD659F /* libiconv.tbd in Frameworks */,
+				9A4DE0971D338A3E00AD659F /* Security.framework in Frameworks */,
+				9A4DE0951D3389D700AD659F /* SystemConfiguration.framework in Frameworks */,
 				EC7B308ED64B28CA7970A14D /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -400,6 +424,14 @@
 		17087E767C56B83B928F600E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9A4DE0A21D338A8100AD659F /* libz.tbd */,
+				9A4DE0A01D338A7900AD659F /* libstdc++.tbd */,
+				9A4DE09E1D338A6F00AD659F /* CoreTelephony.framework */,
+				9A4DE09C1D338A6700AD659F /* libsqlite3.tbd */,
+				9A4DE09A1D338A5900AD659F /* CoreGraphics.framework */,
+				9A4DE0981D338A4C00AD659F /* libiconv.tbd */,
+				9A4DE0961D338A3E00AD659F /* Security.framework */,
+				9A4DE0941D3389D700AD659F /* SystemConfiguration.framework */,
 				243576FA5AC90BC66B7DEEC0 /* Pods.framework */,
 			);
 			name = Frameworks;
