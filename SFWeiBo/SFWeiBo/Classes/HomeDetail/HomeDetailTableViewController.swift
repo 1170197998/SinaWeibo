@@ -22,7 +22,8 @@ class HomeDetailViewController: UIViewController {
     }
     
     func clickRightButton() {
-        
+        UMSocialData.defaultData().extConfig.title = "分享的title"
+        UMSocialSnsService.presentSnsIconSheetView(self, appKey: "57834a3567e58ee84c000e33", shareText: "分享文字", shareImage: UIImage.init(named: "compose_photo_photograph_highlighted"), shareToSnsNames: [UMShareToWechatTimeline,UMShareToQQ,UMShareToWechatSession,UMShareToSms,UMShareToSina], delegate: self)
     }
     
     private func setTableView() {
@@ -53,6 +54,16 @@ class HomeDetailViewController: UIViewController {
     }
 }
 
+// MARK: - UMSocialUIDelegate
+extension HomeDetailViewController: UMSocialUIDelegate {
+    func didFinishGetUMSocialDataInViewController(response: UMSocialResponseEntity!) {
+        if response.responseCode == UMSResponseCodeSuccess {
+            print("share to sns name is \(response.data)")
+        }
+    }
+}
+
+// MARK: - UITableViewDelegate,UITableViewDataSource
 extension HomeDetailViewController: UITableViewDelegate,UITableViewDataSource {
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {

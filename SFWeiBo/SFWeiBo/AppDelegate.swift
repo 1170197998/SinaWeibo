@@ -20,6 +20,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
+        UMSocialData.setAppKey("57834a3567e58ee84c000e33")
+        UMSocialWechatHandler.setWXAppId("wxaa66217f482e27d0", appSecret: "030040b73557785541c9a8f06174b0a4", url: "wwww.baidu.com")
+        
         //注册一个通知
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AppDelegate.switchRootViewController(_:)), name: SFSwitchRootViewController, object: nil)
         
@@ -41,6 +44,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
+    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
+       
+        let result = UMSocialSnsService.handleOpenURL(url)
+        if !result {
+            print("调用其他SDK")
+        }
+        return result
+    }
+    
     //移除通知(相当于OC中的dealloc)
     deinit {
         NSNotificationCenter.defaultCenter().removeObserver(self)
@@ -55,7 +67,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             window?.rootViewController = WelcomeViewController()
         }
     }
-    
     
     //MARK: - 获取默认界面
     private func defaultController() -> UIViewController {
