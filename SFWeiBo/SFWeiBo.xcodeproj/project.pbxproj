@@ -70,7 +70,9 @@
 		9A4DE09F1D338A6F00AD659F /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A4DE09E1D338A6F00AD659F /* CoreTelephony.framework */; };
 		9A4DE0A11D338A7900AD659F /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A4DE0A01D338A7900AD659F /* libstdc++.tbd */; };
 		9A4DE0A31D338A8100AD659F /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A4DE0A21D338A8100AD659F /* libz.tbd */; };
+		9A5F794E1D34D32900C9BA84 /* Comments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5F794D1D34D32900C9BA84 /* Comments.swift */; };
 		9A66F07B1CE4540700C83772 /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A66F07A1CE4540700C83772 /* ComposeViewController.swift */; };
+		9AE686BE1D34E1830057AC8A /* HomeDetailCommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE686BD1D34E1830057AC8A /* HomeDetailCommentTableViewCell.swift */; };
 		9AF76D691D2D075E00D46C29 /* HomeDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF76D681D2D075E00D46C29 /* HomeDetailTableViewController.swift */; };
 		EC7B308ED64B28CA7970A14D /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 243576FA5AC90BC66B7DEEC0 /* Pods.framework */; };
 /* End PBXBuildFile section */
@@ -166,7 +168,9 @@
 		9A4DE09E1D338A6F00AD659F /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		9A4DE0A01D338A7900AD659F /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
 		9A4DE0A21D338A8100AD659F /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		9A5F794D1D34D32900C9BA84 /* Comments.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comments.swift; sourceTree = "<group>"; };
 		9A66F07A1CE4540700C83772 /* ComposeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
+		9AE686BD1D34E1830057AC8A /* HomeDetailCommentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeDetailCommentTableViewCell.swift; sourceTree = "<group>"; };
 		9AF76D681D2D075E00D46C29 /* HomeDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeDetailTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -473,6 +477,8 @@
 			children = (
 				9AF76D681D2D075E00D46C29 /* HomeDetailTableViewController.swift */,
 				9A2A09591D2E68CD002967E1 /* HomeDetailThreeButtonTableViewCell.swift */,
+				9A5F794D1D34D32900C9BA84 /* Comments.swift */,
+				9AE686BD1D34E1830057AC8A /* HomeDetailCommentTableViewCell.swift */,
 			);
 			path = HomeDetail;
 			sourceTree = "<group>";
@@ -683,6 +689,7 @@
 				04EA68711CC7C37C00F587A8 /* StatusTableViewCell.swift in Sources */,
 				04DB41971CA42FB80016E38C /* BaseTableViewController.swift in Sources */,
 				04C718DA1CCFB66C00D9E342 /* StatusPictureView.swift in Sources */,
+				9AE686BE1D34E1830057AC8A /* HomeDetailCommentTableViewCell.swift in Sources */,
 				043E5A651CB01E4A00EDC901 /* QRCodeCardViewController.swift in Sources */,
 				04D44C6B1CA0595600E6C906 /* MainViewController.swift in Sources */,
 				9A66F07B1CE4540700C83772 /* ComposeViewController.swift in Sources */,
@@ -694,6 +701,7 @@
 				9A2A095A1D2E68CD002967E1 /* HomeDetailThreeButtonTableViewCell.swift in Sources */,
 				9A0176901CD97FDD0002DC1A /* UIColor+Category.swift in Sources */,
 				04EC221B1CC671C100D0400E /* Status.swift in Sources */,
+				9A5F794E1D34D32900C9BA84 /* Comments.swift in Sources */,
 				04D44C6F1CA0599000E6C906 /* MessageTableViewController.swift in Sources */,
 				049068401CA6D8D000786278 /* UIBarButtonItem+Category.swift in Sources */,
 				044857571CB543AB002904ED /* OAuthViewController.swift in Sources */,

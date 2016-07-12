@@ -11,6 +11,8 @@ import UIKit
 class HomeDetailViewController: UIViewController {
 
     var currentStatus: Status? = nil
+    var comments: [Comments]?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +21,10 @@ class HomeDetailViewController: UIViewController {
         
         setTableView()
         setFooterButton()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        loadCommentsData()
     }
     
     func clickRightButton() {
@@ -37,6 +43,16 @@ class HomeDetailViewController: UIViewController {
     private func setFooterButton() {
         view.addSubview(footerButton)
         footerButton.AlignVertical(type: AlignType.BottomLeft, referView: tableView, size: CGSizeMake(UIScreen.mainScreen().bounds.width, 44), offset: CGPointMake(0, 0))
+    }
+    
+    private func loadCommentsData() {
+        
+        let params = ["access_token":UserAccount.loadAccount()!.access_token!, "id":currentStatus!.id]
+        
+        Comments.loadComments(params) { (models, error) in
+            print(models)
+            self.comments = models
+        }
     }
 
     //MARK: - 懒加载
@@ -75,7 +91,7 @@ extension HomeDetailViewController: UITableViewDelegate,UITableViewDataSource {
         if section == 0 {
             return 1
         } else {
-            return 20
+            return (comments != nil) ? (comments!.count) : 0
         }
     }
     
@@ -114,7 +130,7 @@ extension HomeDetailViewController: UITableViewDelegate,UITableViewDataSource {
             return cell!.rowHeight(currentStatus!) - 40
             
         } else {
-            return 40
+            return 80
         }
     }
     
@@ -132,10 +148,11 @@ extension HomeDetailViewController: UITableViewDelegate,UITableViewDataSource {
             
         } else {
             
-            var cell = tableView.dequeueReusableCellWithIdentifier("cellID")
+            var cell = tableView.dequeueReusableCellWithIdentifier("cellID") as? HomeDetailCommentTableViewCell
             if (cell == nil) {
-                cell = UITableViewCell.init(style: UITableViewCellStyle.Default, reuseIdentifier: "cellID")
+                cell = HomeDetailCommentTableViewCell.init(style: UITableViewCellStyle.Default, reuseIdentifier: "cellID")
             }
+            cell?.comment = comments?[indexPath.row]
             return cell!
         }
     }
