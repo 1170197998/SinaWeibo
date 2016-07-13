@@ -10,7 +10,7 @@ import UIKit
 
 class HomeDetailViewController: UIViewController {
 
-    var currentStatus: Status? = nil
+    var currentStatus: Status?
     var comments: [Comments]?
     
     
@@ -52,6 +52,7 @@ class HomeDetailViewController: UIViewController {
         Comments.loadComments(params) { (models, error) in
             print(models)
             self.comments = models
+            self.tableView.reloadData()
         }
     }
 

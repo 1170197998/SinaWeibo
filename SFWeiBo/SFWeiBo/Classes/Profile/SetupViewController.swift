@@ -23,6 +23,19 @@ class SetupViewController: UITableViewController {
         tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)
     }
     
+    //group样式去掉header粘性
+    override init(style: UITableViewStyle) {
+        super.init(style: UITableViewStyle.Grouped)
+    }
+    
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     //MARK: - 懒加载
     private lazy var label: UILabel = {
         let label = UILabel()
@@ -75,13 +88,7 @@ extension SetupViewController {
         return 20
     }
     
-    //去除header的粘性
-//    override func scrollViewDidScroll(scrollView: UIScrollView) {
-//        let sectionHeaderHeight:CGFloat = 20
-//        if (scrollView.contentOffset.y <= sectionHeaderHeight && scrollView.contentOffset.y >= 0) {
-//            scrollView.contentInset = UIEdgeInsetsMake(-scrollView.contentOffset.y, 0, 0, 0)
-//        } else if scrollView.contentOffset.y >= sectionHeaderHeight {
-//            scrollView.contentInset = UIEdgeInsetsMake(-sectionHeaderHeight, 0, 0, 0)
-//        }
-//    }
+    override func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 0.0000000000000001
+    }
 }

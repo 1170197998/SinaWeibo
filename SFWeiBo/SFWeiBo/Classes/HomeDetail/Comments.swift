@@ -44,7 +44,6 @@ class Comments: NSObject {
         
         let path = "2/comments/show.json"
         NetworkTools.shareNetworkTools().GET(path, parameters: params, progress: nil, success: { (_, JSON) in
-            print("55555555555\(JSON)")
             let models = dictModel(JSON!["comments"] as! [[String: AnyObject]])
             finished(models:models,error:nil)
         }) { (_, error) in
@@ -52,6 +51,9 @@ class Comments: NSObject {
         }
     }
     
+    /**
+     将字典数组转换为模型数据
+     */
     class func dictModel(list: [[String: AnyObject]]) -> [Comments] {
         
         var models = [Comments]()
@@ -62,11 +64,30 @@ class Comments: NSObject {
         return models
     }
     
+    /**
+     字典转模型
+     */
     init(dict: [String: AnyObject]) {
         super.init()
         setValuesForKeysWithDictionary(dict)
     }
     
+    //setValuesForKeysWithDictionary内部会调用下面的方法
+    override func setValue(value: AnyObject?, forKey key: String) {
+        
+        //1. 判断当前是否正在给微博字典中的user字典赋值
+        if "user" == key {
+            //2. 根据user key对应的字典创建一个模型
+            user = User(dict: value as! [String : AnyObject])
+            return
+        }
+
+        super.setValue(value, forKey: key)
+    }
+
+    /**
+     防止属性不全的时候崩溃
+     */
     override func setValue(value: AnyObject?, forUndefinedKey key: String) {
         
     }

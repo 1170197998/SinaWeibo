@@ -13,10 +13,22 @@ class HomeDetailCommentTableViewCell: UITableViewCell {
     var comment: Comments? {
         didSet {
             if ((comment?.created_at) != nil) {
-                
                 dateLabel.text = comment?.created_at
             } else {
                 dateLabel.text = ""
+            }
+            
+            if ((comment?.text) != nil) {
+                contentLabel.text = comment?.text
+            } else {
+                contentLabel.text = nil
+            }
+
+            nameLabel.text = comment?.user?.name
+            
+            //设置用户头像
+            if let url = comment?.user?.imageUrl {
+                headerIcon.sd_setImageWithURL(url)
             }
         }
     }
@@ -49,20 +61,14 @@ class HomeDetailCommentTableViewCell: UITableViewCell {
     }()
     private lazy var nameLabel: UILabel = {
         let label = UILabel()
-        label.backgroundColor = UIColor.redColor()
-
         return label
     }()
     private lazy var dateLabel: UILabel = {
         let label = UILabel()
-        label.backgroundColor = UIColor.redColor()
-
         return label
     }()
     private lazy var contentLabel: UILabel = {
        let label = UILabel()
-        label.backgroundColor = UIColor.redColor()
-
         return label
     }()
 

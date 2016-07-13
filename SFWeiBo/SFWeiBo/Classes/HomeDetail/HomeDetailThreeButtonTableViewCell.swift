@@ -9,12 +9,12 @@
 import UIKit
 
 class HomeDetailThreeButtonTableViewCell: UITableViewCell {
-
+    
     var mArrayTitle: [String] = []
     var mArrayButton: [UIButton] = []
     var markView: UIView = UIView()
     let markViewIndex :Int = 0
-
+    
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         mArrayTitle = Array()

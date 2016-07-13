@@ -48,7 +48,7 @@ class ProfileTableViewController: BaseTableViewController {
     }
     
     func rightBarButtonItemClick() {
-        let vc = SetupViewController()
+        let vc = SetupViewController.init(style: UITableViewStyle.Grouped)
         navigationController?.pushViewController(vc, animated: true)
     }
 }
