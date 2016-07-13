@@ -9,26 +9,23 @@
 import UIKit
 
 class HomeDetailCommentTableViewCell: UITableViewCell {
-
+    
     var comment: Comments? {
         didSet {
-            if ((comment?.created_at) != nil) {
-                dateLabel.text = comment?.created_at
-            } else {
-                dateLabel.text = ""
-            }
             
-            if ((comment?.text) != nil) {
-                contentLabel.text = comment?.text
-            } else {
-                contentLabel.text = nil
-            }
-
+            //名字赋值
             nameLabel.text = comment?.user?.name
-            
-            //设置用户头像
+            //用户头像赋值
             if let url = comment?.user?.imageUrl {
                 headerIcon.sd_setImageWithURL(url)
+            }
+            //时间赋值
+            if let string = comment?.created_at {
+                dateLabel.text = string
+            }
+            //评论内容赋值
+            if let string = comment?.text {
+                contentLabel.text = string
             }
         }
     }
@@ -54,24 +51,29 @@ class HomeDetailCommentTableViewCell: UITableViewCell {
     
     private lazy var headerIcon: UIImageView = {
         let imageView = UIImageView()
-        imageView.backgroundColor = UIColor.redColor()
         imageView.layer.cornerRadius = 18
         imageView.layer.masksToBounds = true
         return imageView
     }()
     private lazy var nameLabel: UILabel = {
         let label = UILabel()
+        label.font = UIFont.systemFontOfSize(15)
+        label.textColor = UIColor.darkTextColor()
         return label
     }()
     private lazy var dateLabel: UILabel = {
         let label = UILabel()
+        label.font = UIFont.systemFontOfSize(13)
+        label.textColor = UIColor.darkTextColor()
         return label
     }()
     private lazy var contentLabel: UILabel = {
-       let label = UILabel()
+        let label = UILabel()
+        label.font = UIFont.systemFontOfSize(15)
+        label.textColor = UIColor.darkTextColor()
         return label
     }()
-
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

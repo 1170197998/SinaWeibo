@@ -9,7 +9,7 @@
 import UIKit
 
 class Comments: NSObject {
-
+    
     /**
      *
      返回值字段	字段类型	字段说明
@@ -81,10 +81,10 @@ class Comments: NSObject {
             user = User(dict: value as! [String : AnyObject])
             return
         }
-
+        
         super.setValue(value, forKey: key)
     }
-
+    
     /**
      防止属性不全的时候崩溃
      */
