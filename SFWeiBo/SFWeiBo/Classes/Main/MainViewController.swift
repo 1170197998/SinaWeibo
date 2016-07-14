@@ -5,10 +5,6 @@
 //  Created by mac on 16/3/22.
 //  Copyright © 2016年 ShaoFeng. All rights reserved.
 //
-//command + j  ->定位目录结构
-//键盘上下键选择文件夹
-//然后按下回车-->回车拷贝文件名
-//command + n 创建文件
 
 import UIKit
 
