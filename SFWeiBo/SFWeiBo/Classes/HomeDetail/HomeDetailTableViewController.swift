@@ -131,7 +131,13 @@ extension HomeDetailViewController: UITableViewDelegate,UITableViewDataSource {
             return cell!.rowHeight(currentStatus!) - 40
             
         } else {
-            return 80
+            
+            var cell = tableView.dequeueReusableCellWithIdentifier("cellID") as? HomeDetailCommentTableViewCell
+            if (cell == nil) {
+                cell = HomeDetailCommentTableViewCell.init(style: UITableViewCellStyle.Default, reuseIdentifier:"cellID")
+            }
+            cell?.comment = comments?[indexPath.row]
+            return CGRectGetMaxY((cell?.contentLabel.frame)!) + CGFloat(5)
         }
     }
     
