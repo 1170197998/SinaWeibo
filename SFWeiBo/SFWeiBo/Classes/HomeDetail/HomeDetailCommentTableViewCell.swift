@@ -34,7 +34,6 @@ class HomeDetailCommentTableViewCell: UITableViewCell {
             //评论内容赋值
             if let string = comment?.text {
                 
-                //创建NSMutableAttributedString
                 let attributesString = NSMutableAttributedString.init(string: string)
                 
                 let paraghStyle = NSMutableParagraphStyle()
@@ -91,14 +90,7 @@ class HomeDetailCommentTableViewCell: UITableViewCell {
         label.font = UIFont.systemFontOfSize(13)
         label.textColor = UIColor.darkTextColor()
         return label
-    }()
-//    lazy var contentLabel: UILabel = {
-//        let label = UILabel()
-//        label.font = UIFont.systemFontOfSize(15)
-//        label.textColor = UIColor.darkTextColor()
-//        return label
-//    }()
-    
+    }()    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

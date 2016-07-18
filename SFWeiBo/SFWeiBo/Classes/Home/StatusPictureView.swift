@@ -67,15 +67,10 @@ class StatusPictureView: UICollectionView {
         }
         
         // 5.如果是其它(多张), 计算九宫格的大小
-        /*
-         2/3
-         5/6
-         7/8/9
-         */
         // 5.1计算列数
         let colNumber = 3
         // 5.2计算行数
-        //               (8 - 1) / 3 + 1
+        // (8 - 1) / 3 + 1
         let rowNumber = (count! - 1) / 3 + 1
         // 宽度 = 列数 * 图片的宽度 + (列数 - 1) * 间隙
         let viewWidth = colNumber * width + (colNumber - 1) * margin

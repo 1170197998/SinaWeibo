@@ -20,7 +20,6 @@ class ProfileTableViewController: BaseTableViewController {
     let titleArray5 = ["草稿箱"]
     let titleArray6 = ["更多"]
     var titleArray = []
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -68,5 +68,4 @@ class User: NSObject {
         let dict = dictionaryWithValuesForKeys(properties)
         return "\(dict)"
     }
-
 }

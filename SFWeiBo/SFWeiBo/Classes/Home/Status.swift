@@ -63,7 +63,6 @@ class Status: NSObject {
                     //处理大图(在缩略图地址中替换参数)
                     let largeUrlString = urlString.stringByReplacingOccurrencesOfString("thumbnail", withString: "large")
                     storedLargePicUrls!.append(NSURL(string: largeUrlString)!)
-                    
                 }
             }
         }
