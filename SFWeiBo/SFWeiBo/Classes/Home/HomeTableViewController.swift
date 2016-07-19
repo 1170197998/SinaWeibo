@@ -45,6 +45,7 @@ class HomeTableViewController: BaseTableViewController  {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(HomeTableViewController.change), name: PopoverAnimatorWillDismiss, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(HomeTableViewController.showPhotoBrowser(_:)), name: SFStatusPictureViewSelected, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(HomeTableViewController.gotoDetailPage), name: "gotoDetailPage", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(HomeTableViewController.goToUserInfo(_:)), name: clickUserIcon, object: nil)
         
         //注册2个cell(默认的cell 和 转发的cell)
         tableView.registerClass(StatusNormalTableViewCell.self, forCellReuseIdentifier: StatusTableViewCellIdentifier.NormalCell.rawValue)
@@ -57,6 +58,13 @@ class HomeTableViewController: BaseTableViewController  {
 
         //4. 加载微博数据
         loadData()
+    }
+    
+    func goToUserInfo(notify: NSNotification) {
+        print(notify.userInfo)
+        let vc = PersonInfoViewController()
+        vc.user = notify.userInfo!["userInfo"] as? User
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     ///显示图片浏览器

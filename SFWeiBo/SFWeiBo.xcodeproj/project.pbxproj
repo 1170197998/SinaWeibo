@@ -54,6 +54,7 @@
 		9A0176921CD981E50002DC1A /* PhotoBroeserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0176911CD981E50002DC1A /* PhotoBroeserCell.swift */; };
 		9A1B545A1D0E4AA00084284D /* AddFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1B54591D0E4AA00084284D /* AddFriendViewController.swift */; };
 		9A1B545C1D0E4B100084284D /* SetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1B545B1D0E4B100084284D /* SetupViewController.swift */; };
+		9A1E36261D3E240F0006F946 /* PersonInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1E36251D3E240F0006F946 /* PersonInfoViewController.swift */; };
 		9A220D3A1D2117B50062D986 /* EmoticonPackage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A220D321D2117B50062D986 /* EmoticonPackage.swift */; };
 		9A220D3B1D2117B50062D986 /* Emoticons.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9A220D331D2117B50062D986 /* Emoticons.bundle */; };
 		9A220D3C1D2117B50062D986 /* EmoticonTextAttachment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A220D341D2117B50062D986 /* EmoticonTextAttachment.swift */; };
@@ -152,6 +153,7 @@
 		9A0176911CD981E50002DC1A /* PhotoBroeserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoBroeserCell.swift; sourceTree = "<group>"; };
 		9A1B54591D0E4AA00084284D /* AddFriendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddFriendViewController.swift; sourceTree = "<group>"; };
 		9A1B545B1D0E4B100084284D /* SetupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetupViewController.swift; sourceTree = "<group>"; };
+		9A1E36251D3E240F0006F946 /* PersonInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonInfoViewController.swift; sourceTree = "<group>"; };
 		9A220D321D2117B50062D986 /* EmoticonPackage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmoticonPackage.swift; sourceTree = "<group>"; };
 		9A220D331D2117B50062D986 /* Emoticons.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Emoticons.bundle; sourceTree = "<group>"; };
 		9A220D341D2117B50062D986 /* EmoticonTextAttachment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmoticonTextAttachment.swift; sourceTree = "<group>"; };
@@ -320,6 +322,7 @@
 		04D44C621CA058C800E6C906 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				9A1E36241D3E23F60006F946 /* PersonInfo */,
 				04C2AB111CB936E0001DAEC5 /* Newfeature */,
 				044857551CB5437B002904ED /* Oauth */,
 				04D44C631CA058C800E6C906 /* Common */,
@@ -439,6 +442,14 @@
 				243576FA5AC90BC66B7DEEC0 /* Pods.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9A1E36241D3E23F60006F946 /* PersonInfo */ = {
+			isa = PBXGroup;
+			children = (
+				9A1E36251D3E240F0006F946 /* PersonInfoViewController.swift */,
+			);
+			path = PersonInfo;
 			sourceTree = "<group>";
 		};
 		9A220D311D2117B50062D986 /* EmoticonView */ = {
@@ -708,6 +719,7 @@
 				04DB419B1CA43E5F0016E38C /* UIView+AutoLayout.swift in Sources */,
 				04C2AB131CB936F5001DAEC5 /* NewfeatureCollectionViewController.swift in Sources */,
 				9A220D3E1D2117B50062D986 /* UITextView+Category.swift in Sources */,
+				9A1E36261D3E240F0006F946 /* PersonInfoViewController.swift in Sources */,
 				04D44C711CA0599E00E6C906 /* DiscoverTableViewController.swift in Sources */,
 				0418E2D61CC9172E0048624B /* UIButton+Category.swift in Sources */,
 				9A1B545A1D0E4AA00084284D /* AddFriendViewController.swift in Sources */,

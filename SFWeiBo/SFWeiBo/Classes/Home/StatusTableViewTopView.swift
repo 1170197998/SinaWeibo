@@ -8,6 +8,8 @@
 
 import UIKit
 
+let clickUserIcon = "clickUserIcon"
+
 class StatusTableViewTopView: UIView {
     
     var status: Status?
@@ -56,10 +58,18 @@ class StatusTableViewTopView: UIView {
         sourceLabel.AlignHorizontal(type: AlignType.BottomRight, referView: timeLabel, size: nil, offset: CGPoint(x: 10, y: 0))
     }
     
+    @objc private func clickUserInfo() {
+        let dict = ["userInfo": status!.user!]
+        NSNotificationCenter.defaultCenter().postNotificationName(clickUserIcon, object: nil, userInfo: dict)
+    }
+    
     // MARK: - 懒加载
     /// 头像
     private lazy var iconView: UIImageView = {
         let iv = UIImageView(image: UIImage(named: "avatar_default_big"))
+        let ges = UITapGestureRecognizer(target:self,action: #selector(StatusTableViewTopView.clickUserInfo))
+        iv.userInteractionEnabled = true
+        iv.addGestureRecognizer(ges)
         return iv
     }()
     /// 认证图标
