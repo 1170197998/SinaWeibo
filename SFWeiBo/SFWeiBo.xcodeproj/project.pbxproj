@@ -71,6 +71,8 @@
 		9A4DE09F1D338A6F00AD659F /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A4DE09E1D338A6F00AD659F /* CoreTelephony.framework */; };
 		9A4DE0A11D338A7900AD659F /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A4DE0A01D338A7900AD659F /* libstdc++.tbd */; };
 		9A4DE0A31D338A8100AD659F /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A4DE0A21D338A8100AD659F /* libz.tbd */; };
+		9A52541A1D3F6FCB009FB3F7 /* PersonInfoTopTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5254181D3F6FCB009FB3F7 /* PersonInfoTopTableViewCell.swift */; };
+		9A52541B1D3F6FCB009FB3F7 /* PersonInfoTopTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A5254191D3F6FCB009FB3F7 /* PersonInfoTopTableViewCell.xib */; };
 		9A5F794E1D34D32900C9BA84 /* Comments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5F794D1D34D32900C9BA84 /* Comments.swift */; };
 		9A66F07B1CE4540700C83772 /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A66F07A1CE4540700C83772 /* ComposeViewController.swift */; };
 		9AE686BE1D34E1830057AC8A /* HomeDetailCommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE686BD1D34E1830057AC8A /* HomeDetailCommentTableViewCell.swift */; };
@@ -170,6 +172,8 @@
 		9A4DE09E1D338A6F00AD659F /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		9A4DE0A01D338A7900AD659F /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
 		9A4DE0A21D338A8100AD659F /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		9A5254181D3F6FCB009FB3F7 /* PersonInfoTopTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonInfoTopTableViewCell.swift; sourceTree = "<group>"; };
+		9A5254191D3F6FCB009FB3F7 /* PersonInfoTopTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonInfoTopTableViewCell.xib; sourceTree = "<group>"; };
 		9A5F794D1D34D32900C9BA84 /* Comments.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comments.swift; sourceTree = "<group>"; };
 		9A66F07A1CE4540700C83772 /* ComposeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
 		9AE686BD1D34E1830057AC8A /* HomeDetailCommentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeDetailCommentTableViewCell.swift; sourceTree = "<group>"; };
@@ -448,6 +452,8 @@
 			isa = PBXGroup;
 			children = (
 				9A1E36251D3E240F0006F946 /* PersonInfoViewController.swift */,
+				9A5254181D3F6FCB009FB3F7 /* PersonInfoTopTableViewCell.swift */,
+				9A5254191D3F6FCB009FB3F7 /* PersonInfoTopTableViewCell.xib */,
 			);
 			path = PersonInfo;
 			sourceTree = "<group>";
@@ -607,6 +613,7 @@
 				049BCB4B1CA193660011B951 /* MainVCSettings.json in Resources */,
 				04D0F5E31CD3B44500FEDF25 /* HomeRefreshView.xib in Resources */,
 				04D44C3C1CA055CB00E6C906 /* Assets.xcassets in Resources */,
+				9A52541B1D3F6FCB009FB3F7 /* PersonInfoTopTableViewCell.xib in Resources */,
 				0439CF031CAC176900256571 /* QRCodeViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -722,6 +729,7 @@
 				9A1E36261D3E240F0006F946 /* PersonInfoViewController.swift in Sources */,
 				04D44C711CA0599E00E6C906 /* DiscoverTableViewController.swift in Sources */,
 				0418E2D61CC9172E0048624B /* UIButton+Category.swift in Sources */,
+				9A52541A1D3F6FCB009FB3F7 /* PersonInfoTopTableViewCell.swift in Sources */,
 				9A1B545A1D0E4AA00084284D /* AddFriendViewController.swift in Sources */,
 				04B67D231CA983CD003D3A23 /* PopoverAnimator.swift in Sources */,
 				04DB41991CA438B10016E38C /* VisitorView.swift in Sources */,

@@ -27,6 +27,8 @@ class PersonInfoViewController: UIViewController {
         
         let tableView = UITableView()
         tableView.frame = UIScreen.mainScreen().bounds
+        tableView.dataSource = self
+        tableView.delegate = self
         return tableView
     }()
 
@@ -34,4 +36,22 @@ class PersonInfoViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
 
+}
+
+extension PersonInfoViewController:UITableViewDelegate,UITableViewDataSource {
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        var cell = tableView.dequeueReusableCellWithIdentifier("id") as? PersonInfoTopTableViewCell
+        if cell == nil {
+            cell = (NSBundle.mainBundle().loadNibNamed("PersonInfoTopTableViewCell", owner: self, options: nil)).last as? PersonInfoTopTableViewCell
+        }
+        cell!.user = user
+        return cell!
+    }
+    
 }
