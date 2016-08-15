@@ -32,6 +32,8 @@ class PersonInfoTopTableViewCell: UITableViewCell {
             }
             
             verified.image = UIImage.init(named: string!)
+            fans.text = "粉丝数:" + String(user?.followers_count)
+            attention.text = "关注:" + String(user?.friends_count)
         }
     }
     
@@ -48,9 +50,8 @@ class PersonInfoTopTableViewCell: UITableViewCell {
         super.drawRect(rect)
         
         let layer = icon.layer
-        layer.cornerRadius = 20
+        layer.cornerRadius = 25
         layer.masksToBounds = true
-        
     }
     
 }

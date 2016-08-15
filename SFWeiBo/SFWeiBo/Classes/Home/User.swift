@@ -22,6 +22,13 @@ class User: NSObject {
             }
         }
     }
+    /// 粉丝数
+    var followers_count: Int = 0
+    /// 关注数
+    var friends_count: Int = 0
+    /// 认证原因
+    var verified_reason: String?
+    
     ///用于保存用户头像的URL
     var imageUrl: NSURL?
     /// 时候是认证, true是, false不是
